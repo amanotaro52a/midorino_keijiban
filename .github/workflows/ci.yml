@@ -41,19 +41,21 @@ jobs:
     runs-on: ubuntu-latest
 
     services:
-      mysql:
-        image: mysql
-        env:
-          MYSQL_ALLOW_EMPTY_PASSWORD: true
+      web:
+        build: .
         ports:
-          - 3306:3306
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
-
-      # redis:
-      #   image: redis
-      #   ports:
-      #     - 6379:6379
-      #   options: --health-cmd "redis-cli ping" --health-interval 10s --health-timeout 5s --health-retries 5
+          - 3000:3000
+        depends_on:
+          - postgres
+      postgres:
+        image: postgres:13
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: password
+          POSTGRES_DB: myapp_development
+        ports:
+          - 5432:5432
+        options: --health-cmd="pg_isready" --health-interval=10s --health-timeout=5s --health-retries=3
 
     steps:
       - name: Install packages
@@ -68,11 +70,15 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
+      - name: Set up database
+        run: |
+          bin/rails db:create
+          bin/rails db:schema:load
+
       - name: Run tests
         env:
           RAILS_ENV: test
-          DATABASE_URL: mysql2://127.0.0.1:3306
-          # REDIS_URL: redis://localhost:6379/0
+          DATABASE_URL: postgres://postgres:password@postgres:5432/myapp_development
         run: bin/rails db:test:prepare test test:system
 
       - name: Keep screenshots from failed system tests
