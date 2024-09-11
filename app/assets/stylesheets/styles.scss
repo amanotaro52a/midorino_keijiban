@@ -1,0 +1,52 @@
+.container {
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+
+  .form-control {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .btn-success {
+    background-color: #006400;
+    color: white;
+  }
+
+  .btn-success:hover {
+   background-color: darkgreen;
+  }
+
+  .btn-secondary {
+    margin-left: 20px; // ボタンの間隔を調整
+
+    background-color: white;  // 背景色を緑に
+    color: darkgreen;             // 文字色を白に
+    border: 2px solid darkgreen;
+  }
+
+  .text-center {
+    margin-top: 20px; // 上の間隔を調整
+  }
+
+  .link-wrapper {
+    display: flex;           // フレックスボックスを利用
+    justify-content: space-between; // ボタンとリンクを左右に配置
+    margin-top: 10px;       // 上の間隔を調整
+  }
+
+  .link-wrapper a {
+    margin-left: 10px;      // ボタンとリンクの間隔を調整
+    flex-grow: 1;           // リンクの幅を広げる
+  }
+
+  .btn {
+    padding: 10px 50px; // 縦横のパディングを大きく
+    font-size: 18px;    // フォントサイズを大きく
+  }
+
+  .button-container {
+    text-align: center; // 中央寄せ
+    margin-top: 20px;   // 上の間隔を調整
+  }
+}
