@@ -2,7 +2,7 @@ class SorceryCore < ActiveRecord::Migration[7.2]
   def change
     create_table :users do |t|
       t.string :name                   # 名前
-      t.string :email    # メールアドレス
+      t.string :email, null: false     # メールアドレス
       t.string :crypted_password       # パスワードハッシュ
       t.string :salt                   # ソルト
       t.string :reset_password_token   # パスワードリセットトークン
@@ -12,6 +12,8 @@ class SorceryCore < ActiveRecord::Migration[7.2]
       t.datetime :remember_me_token_expires_at    # Remember Meトークンの有効期限
 
       t.timestamps
-    end 
+    end
+
+    add_index :users, :email, unique: true   # メールアドレスに対する一意性を保証するインデックスを追加
   end
 end
