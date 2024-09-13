@@ -1,4 +1,7 @@
 ja:
+  defaults:
+    flash_message:
+      require_login: ログインしてください
   helpers:
     submit:
       create: 登録
@@ -21,9 +24,9 @@ ja:
   header:
     login: ログイン
     logout: ログアウト
-    board: 掲示板
-    board_index: 日記一覧
-    create_board: 日記作成
+    diary: 日記
+    diary_index: 日記一覧
+    create_diary: 日記作成
     bookmark_index: ブックマーク一覧
     profile: プロフィール
   user_sessions:
