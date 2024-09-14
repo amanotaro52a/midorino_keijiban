@@ -1,23 +1,19 @@
-<div class="diary-container d-flex flex-wrap">
-  <% @diaries.each do |diary| %>
-    <div class="diary-entry col-sm-12 col-lg-4 mb-3">
-      <div id="diary-id-<%= diary.id %>">
-        <div class="card">
-          <%= image_tag "diary_placeholder.png", class: "card-img-top", width: "300", height:"200" %>
-          <div class="card-content">
-            <div class="d-flex">
-              <h4 class="card-title">
-                <%= link_to diary.title, '#' %>
-              </h4>
-            </div>
-            <ul class="list-inline">
-              <li><i class="bi bi-person"></i><%= diary.user.decorate.full_name %></li>
-              <li><i class="bi bi-calendar"></i><%= l diary.created_at, format: :short %></li>
-            </ul>
-            <p class="card-text"><%= diary.content %></p>
-          </div>
+<div class="col-sm-12 col-lg-3 mb-5">
+  <div id="diary-id-<%= diary.id %>">
+    <div class="card">
+      <%= image_tag "diary_placeholder.png", class: "card-img-top", width: "350", height:"200" %>
+      <div class="card-content">
+        <div class="d-flex">
+          <h4 class="card-title">
+            <%= link_to diary.title, '#' %>
+          </h4>
         </div>
+        <ul class='ms-auto'>
+          <li><i class="bi bi-person"></i><%= diary.user.decorate.full_name %></li>
+          <li><i class="bi bi-calendar"></i><%= l diary.created_at, format: :short %></li>
+        </ul>
+        <p class="card-text"><%= diary.content %></p>
       </div>
     </div>
-  <% end %>
+  </div>
 </div>

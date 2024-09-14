@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <h1><%= t('.title') %></h1>
+      <%= form_with model: @diary, class: "new_diary" do |f| %>
+        <div class="mb-3">
+          <%= f.label :title, t('activerecord.attributes.diary.title') %>
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+        <div class="mb-3">
+          <%= f.label :content, t('activerecord.attributes.diary.content') %>
+          <%= f.text_area :content, class: "form-control", rows: "5", placeholder: "クリックして概要を入力" %>
+        </div>
+        <%= f.submit nil, class: "btn btn-success" %>
+      <% end %>
+    </div>
+  </div>
+</div>
