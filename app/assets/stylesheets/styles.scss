@@ -49,15 +49,4 @@
     text-align: center; // 中央寄せ
     margin-top: 20px;   // 上の間隔を調整
   }
-
-  .diary-container {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .diary-entry {
-    flex: 1 0 20%; /* 幅を20%に設定して、5つ並ぶようにする */
-    box-sizing: border-box; /* パディングやマージンを含めた幅を計算する */
-    padding: 10px; /* マージンやパディングを調整 */
-  }
 }

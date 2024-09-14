@@ -1,15 +1,17 @@
 ja:
-  defaults:
-    flash_message:
-      require_login: ログインしてください
   helpers:
     submit:
       create: 登録
-      submit: 保存
+      submit: 投稿
       update: 更新
     label:
       email: メールアドレス
       password: パスワード
+  defaults:
+    flash_message:
+      created: "%{item}を作成しました"
+      not_created: "%{item}を作成出来ませんでした"
+      require_login: ログインしてください
   user_sessions:
     new:
       title: ログイン
@@ -47,3 +49,6 @@ ja:
     create:
       success: 会員登録が完了しました
       failure: 会員登録に失敗しました
+  diaries:
+    new:
+      title: 日記作成
