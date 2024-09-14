@@ -11,6 +11,11 @@
           <%= f.label :content, t('activerecord.attributes.diary.content') %>
           <%= f.text_area :content, class: "form-control", rows: "5", placeholder: "クリックして概要を入力" %>
         </div>
+        <div class="mb-3">
+          <%= f.label :board_image %>
+          <%= f.file_field :board_image, class: "form-control", accept: 'image/*' %>
+          <%= f.hidden_field :board_image_cache %>
+        </div>
         <%= f.submit nil, class: "btn btn-success" %>
       <% end %>
     </div>
