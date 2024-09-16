@@ -1,6 +1,6 @@
 class DiariesController < ApplicationController
   def index
-    @diaries = Diary.includes(:user)
+    @diaries = Diary.includes(:user).page(params[:page])
   end
 
   def new
