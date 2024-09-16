@@ -49,4 +49,24 @@
     text-align: center; // 中央寄せ
     margin-top: 20px;   // 上の間隔を調整
   }
+
+  .board-image {
+    cursor: pointer; /* クリックできるようにカーソルを変更 */
+  }
+  .preview-container img {
+    max-width: 100%; /* プレビュー画像のサイズを調整 */
+  }
+
+  .thumbnail {
+    background-color: #eedcb3; /* 黄色の背景 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer; /* クリックできることを示すカーソル */
+    border: 2px solid #ccc; /* 枠線を追加（必要に応じて） */
+  }
+  .thumbnail img {
+    max-width: 85%; /* 画像のサイズを調整 */
+    max-height: 80%; /* 画像のサイズを調整 */
+  }
 }

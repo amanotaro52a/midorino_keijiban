@@ -12,3 +12,4 @@ ja:
       diary:
         title: タイトル
         content: 本文
+        diary_image: サムネイル

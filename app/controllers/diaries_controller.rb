@@ -17,9 +17,13 @@ class DiariesController < ApplicationController
     end
   end
 
+  def diary_params
+    params.require(:diary).permit(:title, :content, :diary_image)
+  end
+
   private
 
   def diary_params
-    params.require(:diary).permit(:title, :content)
+    params.require(:diary).permit(:title, :content, :diary_image, :diary_image_cache)
   end
 end
