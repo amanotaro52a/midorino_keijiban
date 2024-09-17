@@ -15,10 +15,10 @@
                 <li class="list-inline-item"><%= l @diary.created_at, format: :long %></li>
               </ul>
               <div class='d-flex justify-content-end'>
-                <%= link_to "#", id: "button-edit-#{@diary.id}" do %>
+                <%= link_to edit_diary_path(@diary), id: "button-edit-#{@diary.id}" do %>
                   <i class='bi bi-pencil-fill'></i>
                 <% end %>
-                <%= link_to "#", id: "button-delete-#{@diary.id}", class: "ms-2" do %>
+                <%= link_to diary_path(@diary), id: "button-delete-#{@diary.id}", data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') } do%>
                   <i class="bi bi-trash-fill"></i>
                 <% end %>
               </div>

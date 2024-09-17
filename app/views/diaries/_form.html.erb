@@ -1,0 +1,50 @@
+<%= form_with model: @diary, class: "new_diary" do |f| %>
+  <div class="d-flex align-items-start mb-3">
+      <!-- 左側のサムネイル領域 -->
+    <div class="thumbnail" for="diary_image" style="border: 2px solid beige; padding: 20px; display: flex; justify-content: center; align-items: center; height: 300px; width: 350px; margin-right: 20px;">
+      <div class="preview-container">
+        <img id="preview_image" src="<%= @diary.diary_image.url if @diary.diary_image.present? %>" alt="クリックしてサムネイル画像を挿入" style="max-width: 100%; max-height: 100%;" />
+      </div>
+    </div>
+
+      <!-- 右側のフォームフィールド -->
+    <div class="w-100">
+      <div class="mb-3">
+        <%= f.file_field :diary_image, class: "form-control", accept: 'image/*', style: "display: none;", id: "diary_image_input" %>
+        <%= f.hidden_field :diary_image_cache %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :title, t('activerecord.attributes.diary.title') %>
+        <%= f.text_field :title, class: "form-control" %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :content, t('activerecord.attributes.diary.content') %>
+        <%= f.text_area :content, class: "form-control", rows: "5", placeholder: "クリックして本文を入力" %>
+      </div>
+    </div>
+  </div>
+  <%= f.submit nil, class: "btn btn-success" %>
+<% end %>
+
+<script>
+  // 黄色い正方形をクリックしたときに画像選択ダイアログを開く
+  document.querySelector('.thumbnail').addEventListener('click', function() {
+    document.querySelector('input[type="file"][name="diary[diary_image]"]').click(); // input要素をクリックする
+  });
+
+  // 画像が選択されたときの処理
+  document.querySelector('input[type="file"][name="diary[diary_image]"]').addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const img = document.createElement('img');
+        img.src = e.target.result;
+        img.style.maxWidth = '100%'; // 画像のサイズ調整
+        document.querySelector('.preview-container').innerHTML = ''; // 既存のプレビューをクリア
+        document.querySelector('.preview-container').appendChild(img);
+      };
+      reader.readAsDataURL(file);
+    }
+  });
+</script>

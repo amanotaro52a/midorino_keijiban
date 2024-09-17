@@ -2,33 +2,7 @@
   <div class="row">
     <div class="col-lg-8 offset-lg-2">
       <h1><%= t('.title') %></h1>
-      <%= form_with model: @diary, class: "new_diary" do |f| %>
-        <div class="d-flex align-items-start mb-3">
-          <!-- 左側のサムネイル領域 -->
-          <div class="thumbnail" for="diary_image" style="border: 2px solid beige; padding: 20px; display: flex; justify-content: center; align-items: center; height: 300px; width: 350px; margin-right: 20px;">
-            <div class="preview-container">
-              <img id="preview_image" src="現在のボード画像のURL" alt="クリックしてサムネイル画像を挿入" style="max-width: 100%; max-height: 100%;" />
-            </div>
-          </div>
-
-          <!-- 右側のフォームフィールド -->
-          <div class="w-100">
-            <div class="mb-3">
-              <%= f.file_field :diary_image, class: "form-control", accept: 'image/*', style: "display: none;", id: "diary_image_input" %>
-              <%= f.hidden_field :diary_image_cache %>
-            </div>
-            <div class="mb-3">
-              <%= f.label :title, t('activerecord.attributes.diary.title') %>
-              <%= f.text_field :title, class: "form-control" %>
-            </div>
-            <div class="mb-3">
-              <%= f.label :content, t('activerecord.attributes.diary.content') %>
-              <%= f.text_area :content, class: "form-control", rows: "5", placeholder: "クリックして本文を入力" %>
-            </div>
-          </div>
-        </div>
-        <%= f.submit nil, class: "btn btn-success" %>
-      <% end %>
+      <%= render 'form', diary: @diary %>
     </div>
   </div>
 </div>
