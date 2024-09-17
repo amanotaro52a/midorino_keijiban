@@ -6,26 +6,3 @@
     </div>
   </div>
 </div>
-
-<script>
-  // 黄色い正方形をクリックしたときに画像選択ダイアログを開く
-  document.querySelector('.thumbnail').addEventListener('click', function() {
-    document.querySelector('input[type="file"][name="diary[diary_image]"]').click(); // input要素をクリックする
-  });
-
-  // 画像が選択されたときの処理
-  document.querySelector('input[type="file"][name="diary[diary_image]"]').addEventListener('change', function(event) {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        const img = document.createElement('img');
-        img.src = e.target.result;
-        img.style.maxWidth = '100%'; // 画像のサイズ調整
-        document.querySelector('.preview-container').innerHTML = ''; // 既存のプレビューをクリア
-        document.querySelector('.preview-container').appendChild(img);
-      };
-      reader.readAsDataURL(file);
-    }
-  });
-</script>
