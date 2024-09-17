@@ -1,6 +1,7 @@
 class DiariesController < ApplicationController
   def index
-    @diaries = Diary.includes(:user).page(params[:page])
+    @q = Diary.ransack(params[:q])
+    @diaries = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
   end
 
   def new
