@@ -1,0 +1,33 @@
+<div class="container pt-5">
+  <div class="row mb-3">
+    <div class="col-lg-8 offset-lg-2">
+      <h1><%= t('.title') %></h1>
+      <article class="card">
+        <div class="card-content">
+          <div class="row">
+            <div class="col-md-3">
+              <%= image_tag @diary.diary_image_url, width: "300", height: "200", class: "card-img-top img-fluid" %>
+            </div>
+            <div class="col-md-9">
+              <h3 style="display: inline;"><%= @diary.title %></h3>
+              <ul class="list-inline">
+                <li class="list-inline-item"><%= "by #{@diary.user.decorate.name}" %></li>
+                <li class="list-inline-item"><%= l @diary.created_at, format: :long %></li>
+              </ul>
+              <div class='d-flex justify-content-end'>
+                <%= link_to "#", id: "button-edit-#{@diary.id}" do %>
+                  <i class='bi bi-pencil-fill'></i>
+                <% end %>
+                <%= link_to "#", id: "button-delete-#{@diary.id}", class: "ms-2" do %>
+                  <i class="bi bi-trash-fill"></i>
+                <% end %>
+              </div>
+              </div>
+            </div>
+            <p><%= simple_format(@diary.content) %></p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
