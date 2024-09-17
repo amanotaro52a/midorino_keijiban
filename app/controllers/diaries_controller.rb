@@ -7,6 +7,10 @@ class DiariesController < ApplicationController
     @diary = Diary.new
   end
 
+  def show
+    @diary = Diary.find(params[:id])
+  end
+
   def create
     @diary = current_user.diaries.build(diary_params)
     if @diary.save
