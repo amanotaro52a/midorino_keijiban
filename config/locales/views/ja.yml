@@ -9,6 +9,7 @@ ja:
       password: パスワード
   defaults:
     create: 作成
+    search_word: 検索ワード
     delete_confirm: 削除しますか？
     flash_message:
       created: "%{item}を作成しました"
