@@ -1,4 +1,5 @@
 <%= form_with model: @diary, class: "new_diary" do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
   <div class="d-flex align-items-start mb-3">
       <!-- 左側のサムネイル領域 -->
     <div class="thumbnail" for="diary_image" style="border: 2px solid beige; padding: 20px; display: flex; justify-content: center; align-items: center; height: 300px; width: 350px; margin-right: 20px;">

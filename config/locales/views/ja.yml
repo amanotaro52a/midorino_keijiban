@@ -6,6 +6,7 @@ ja:
       update: 更新
     label:
       email: メールアドレス
+      full_name: 名前
       password: パスワード
   defaults:
     create: 作成
@@ -65,3 +66,12 @@ ja:
       title: 日記一覧
     edit:
       title: 日記編集
+  profiles:
+    show:
+      title: プロフィール
+    edit:
+      title: プロフィール編集
+      to_login_page: ログインページへ
+  errors:
+    messages:
+      extension_whitelist_error: "許可されていないファイル形式です。"
