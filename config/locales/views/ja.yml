@@ -10,6 +10,7 @@ ja:
   defaults:
     create: 作成
     search_word: 検索ワード
+    edit: 編集
     delete_confirm: 削除しますか？
     flash_message:
       created: "%{item}を作成しました"
