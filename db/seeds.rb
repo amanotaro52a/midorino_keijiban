@@ -18,5 +18,5 @@ user_ids = User.ids
 
 20.times do |index|
   user = User.find(user_ids.sample)
-  user.diaries.create!(title: "タイトル#{index}", content: "本文#{index}")
+  user.diaries.create!(title: "タイトル#{index}", summary_content: "概要#{index}")
 end

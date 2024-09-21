@@ -1,7 +1,7 @@
 <div class="col-sm-12 col-lg-3 mb-5">
   <div id="diary-id-<%= diary.id %>">
     <div class="card">
-      <%= image_tag diary.diary_image_url, class: "card-img-top", width: "350", height:"200" %>
+      <%= image_tag diary.thumbnail_image_url, class: "card-img-top", width: "350", height: "200" %>
       <div class="card-content">
         <div class="d-flex">
           <h4 class="card-title">
@@ -12,7 +12,7 @@
           <li><i class="bi bi-person"></i><%= diary.user.decorate.full_name %></li>
           <li><i class="bi bi-calendar"></i><%= l diary.created_at, format: :short %></li>
         </ul>
-        <p class="card-text"><%= diary.content %></p>
+        <p class="card-text"><%= diary.summary_content %></p>
       </div>
     </div>
   </div>

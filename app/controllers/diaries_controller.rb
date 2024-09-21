@@ -9,7 +9,10 @@ class DiariesController < ApplicationController
   end
 
   def show
-    @diary = Diary.find(params[:id])
+    @diary = Diary.find_by(id: params[:id])
+    if @diary.nil?
+      redirect_to diaries_path, alert: "日記が見つかりませんでした"
+    end
   end
 
   def create
@@ -22,12 +25,11 @@ class DiariesController < ApplicationController
     end
   end
 
-  def diary_params
-    params.require(:diary).permit(:title, :content, :diary_image)
-  end
-
   def edit
-    @diary = current_user.diaries.find(params[:id])
+    @diary = current_user.diaries.find_by(id: params[:id])
+    if @diary.nil?
+      redirect_to diaries_path, alert: "日記が見つかりませんでした"
+    end
   end
 
   def update
@@ -49,6 +51,12 @@ class DiariesController < ApplicationController
   private
 
   def diary_params
-    params.require(:diary).permit(:title, :content, :diary_image, :diary_image_cache)
+    params.require(:diary).permit(
+      :title,
+      :summary_content,
+      :thumbnail_image,
+      :thumbnail_image_cache,
+      growth_stages_attributes: [:id, :growth_stage_contents, :image]
+    )
   end
 end

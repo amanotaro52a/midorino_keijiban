@@ -1,51 +1,48 @@
-<%= form_with model: @diary, class: "new_diary" do |f| %>
+<%= form_with model: @diary do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <div class="d-flex align-items-start mb-3">
-      <!-- 左側のサムネイル領域 -->
-    <div class="thumbnail" for="diary_image" style="border: 2px solid beige; padding: 20px; display: flex; justify-content: center; align-items: center; height: 300px; width: 350px; margin-right: 20px;">
-      <div class="preview-container">
-        <img id="preview_image" src="<%= @diary.diary_image.url if @diary.diary_image.present? %>" alt="クリックしてサムネイル画像を挿入" style="max-width: 100%; max-height: 100%;" />
-      </div>
-    </div>
 
-      <!-- 右側のフォームフィールド -->
-    <div class="w-100">
-      <div class="mb-3">
-        <%= f.file_field :diary_image, class: "form-control", accept: 'image/*', style: "display: none;", id: "diary_image_input" %>
-        <%= f.hidden_field :diary_image_cache %>
-      </div>
-      <div class="mb-3">
-        <%= f.label :title, t('activerecord.attributes.diary.title') %>
-        <%= f.text_field :title, class: "form-control" %>
-      </div>
-      <div class="mb-3">
-        <%= f.label :content, t('activerecord.attributes.diary.content') %>
-        <%= f.text_area :content, class: "form-control", rows: "5", placeholder: "クリックして本文を入力" %>
-      </div>
-    </div>
+  <div class="mb-3">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
   </div>
-  <%= f.submit nil, class: "btn btn-success" %>
+
+  <div class="mb-3">
+    <%= f.label :summary_content %>
+    <%= f.text_area :summary_content, class: "form-control", rows: "10" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :thumbnail_image %>
+    <%= f.file_field :thumbnail_image, class: "form-control", accept: 'image/*' %>
+  </div>
+
+  <div id="growth-stage-contents">
+    <%= f.fields_for :growth_stages do |growth_stage_form| %>
+      <div class="mb-3 growth-stage-item">
+        <%= growth_stage_form.label :growth_stage_contents, "成長段階" %>
+        <%= growth_stage_form.text_area :growth_stage_contents, class: "form-control growth_stage_content", rows: "4", placeholder: "成長段階を入力" %>
+        <%= growth_stage_form.file_field :image, class: "form-control", accept: 'image/*' %>
+      </div>
+    <% end %>
+  </div>
+
+  <button type="button" class="btn btn-secondary" id="add-growth-stage-content">追加</button>
+  <%= f.submit "保存", class: "btn btn-success" %>
 <% end %>
 
 <script>
-  // 黄色い正方形をクリックしたときに画像選択ダイアログを開く
-  document.querySelector('.thumbnail').addEventListener('click', function() {
-    document.querySelector('input[type="file"][name="diary[diary_image]"]').click(); // input要素をクリックする
-  });
+  document.getElementById('add-growth-stage-content').addEventListener('click', function() {
+    // 新しい要素を作成
+    const newItem = document.createElement('div');
+    newItem.classList.add('mb-3', 'growth-stage-item');
 
-  // 画像が選択されたときの処理
-  document.querySelector('input[type="file"][name="diary[diary_image]"]').addEventListener('change', function(event) {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        const img = document.createElement('img');
-        img.src = e.target.result;
-        img.style.maxWidth = '100%'; // 画像のサイズ調整
-        document.querySelector('.preview-container').innerHTML = ''; // 既存のプレビューをクリア
-        document.querySelector('.preview-container').appendChild(img);
-      };
-      reader.readAsDataURL(file);
-    }
+    newItem.innerHTML = `
+      <label for="diary_growth_stages_attributes_new_growth_stage_contents">成長段階の内容</label>
+      <textarea name="diary[growth_stages_attributes][][growth_stage_contents]" class="form-control growth_stage_content" rows="4" placeholder="成長段階の内容を入力"></textarea>
+      <input type="file" name="diary[growth_stages_attributes][][image]" class="form-control" accept="image/*">
+    `;
+
+    // コンテナに追加
+    document.getElementById('growth-stage-contents').appendChild(newItem);
   });
 </script>
