@@ -20,20 +20,20 @@
     <%= f.fields_for :growth_stages do |growth_stage_form| %>
       <div class="mb-3 growth-stage-item">
         <%= growth_stage_form.hidden_field :id %>
-        <%= growth_stage_form.label :growth_stage_contents, "成長段階" %>
+        <%= growth_stage_form.label :growth_stage_contents, t('activerecord.attributes.diary.growth_stage_contents') %>
         <%= growth_stage_form.text_area :growth_stage_contents, class: "form-control growth_stage_content", rows: "4", placeholder: "成長段階を入力" %>
         <%= growth_stage_form.file_field :image, class: "form-control", accept: 'image/*' %>
 
         <!-- 削除を識別するための隠しフィールド -->
         <%= growth_stage_form.hidden_field :_destroy, value: "false", class: "destroy-hidden-field" %>
         <!-- 削除ボタン -->
-        <button type="button" class="btn btn-danger remove-growth-stage-btn">この成長段階を削除</button>
+        <button type="button" class="btn btn-danger remove-growth-stage-btn"><%= t('buttons.destroy') %></button>
       </div>
     <% end %>
   </div>
 
-  <button type="button" class="btn btn-secondary" id="add-growth-stage-content">追加</button>
-  <%= f.submit "保存", class: "btn btn-success" %>
+  <button type="button" class="btn btn-secondary" id="add-growth-stage-content"><%= t('buttons.add') %></button>
+  <%= f.submit t('buttons.save'), class: "btn btn-success" %>
 <% end %>
 
 <script>
@@ -57,8 +57,8 @@
     newItem.classList.add('mb-3', 'growth-stage-item');
 
     newItem.innerHTML = `
-      <label for="diary_growth_stages_attributes_${index}_growth_stage_contents">成長段階の内容</label>
-      <textarea name="diary[growth_stages_attributes][${index}][growth_stage_contents]" class="form-control growth_stage_content" rows="4" placeholder="成長段階の内容を入力"></textarea>
+      <label for="diary_growth_stages_attributes_${index}_growth_stage_contents">成長段階</label>
+      <textarea name="diary[growth_stages_attributes][${index}][growth_stage_contents]" class="form-control growth_stage_content" rows="4" placeholder="⚪︎月⚪︎日"></textarea>
       <input type="file" name="diary[growth_stages_attributes][${index}][image]" class="form-control" accept="image/*">
 
       <!-- 隠しフィールド（削除用） -->
