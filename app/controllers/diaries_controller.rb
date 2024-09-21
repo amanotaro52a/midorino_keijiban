@@ -51,12 +51,7 @@ class DiariesController < ApplicationController
   private
 
   def diary_params
-    params.require(:diary).permit(
-      :title,
-      :summary_content,
-      :thumbnail_image,
-      :thumbnail_image_cache,
-      growth_stages_attributes: [:id, :growth_stage_contents, :image]
-    )
+    params.require(:diary).permit(:title, :summary_content, :thumbnail_image,
+    growth_stages_attributes: [:id, :growth_stage_contents, :image, :_destroy])
   end
 end

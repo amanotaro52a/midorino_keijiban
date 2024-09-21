@@ -19,9 +19,12 @@
   <div id="growth-stage-contents">
     <%= f.fields_for :growth_stages do |growth_stage_form| %>
       <div class="mb-3 growth-stage-item">
+        <%= growth_stage_form.hidden_field :id %> <!-- 既存の成長段階を識別するためにIDを隠しフィールドとして追加 -->
         <%= growth_stage_form.label :growth_stage_contents, "成長段階" %>
         <%= growth_stage_form.text_area :growth_stage_contents, class: "form-control growth_stage_content", rows: "4", placeholder: "成長段階を入力" %>
         <%= growth_stage_form.file_field :image, class: "form-control", accept: 'image/*' %>
+        <%= growth_stage_form.check_box :_destroy %> 削除 <!-- 成長段階の削除ができるように -->
+        <%= growth_stage_form.label :_destroy, "この成長段階を削除" %>
       </div>
     <% end %>
   </div>
@@ -32,17 +35,19 @@
 
 <script>
   document.getElementById('add-growth-stage-content').addEventListener('click', function() {
-    // 新しい要素を作成
+    const container = document.getElementById('growth-stage-contents');
+
+    // インデックスを取得して新しい要素の名前属性に適用
+    const index = container.children.length;
     const newItem = document.createElement('div');
     newItem.classList.add('mb-3', 'growth-stage-item');
 
     newItem.innerHTML = `
-      <label for="diary_growth_stages_attributes_new_growth_stage_contents">成長段階の内容</label>
-      <textarea name="diary[growth_stages_attributes][][growth_stage_contents]" class="form-control growth_stage_content" rows="4" placeholder="成長段階の内容を入力"></textarea>
-      <input type="file" name="diary[growth_stages_attributes][][image]" class="form-control" accept="image/*">
+      <label for="diary_growth_stages_attributes_${index}_growth_stage_contents">成長段階の内容</label>
+      <textarea name="diary[growth_stages_attributes][${index}][growth_stage_contents]" class="form-control growth_stage_content" rows="4" placeholder="成長段階の内容を入力"></textarea>
+      <input type="file" name="diary[growth_stages_attributes][${index}][image]" class="form-control" accept="image/*">
     `;
 
-    // コンテナに追加
-    document.getElementById('growth-stage-contents').appendChild(newItem);
+    container.appendChild(newItem);
   });
 </script>

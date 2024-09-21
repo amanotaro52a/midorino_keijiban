@@ -33,9 +33,9 @@
       </article>
 
       <!-- 成長過程の内容と画像のカード -->
-      <% @diary.growth_stages.each do |growth_stage| %>
-        <article class="card">
-          <div class="card-summary_content">
+      <div id="growth-stage-contents">
+        <% @diary.growth_stages.each do |growth_stage| %>
+          <article class="card mb-3">
             <div class="row">
               <!-- 成長過程の画像表示 -->
               <div class="col-md-3">
@@ -46,9 +46,9 @@
                 <p><%= simple_format(growth_stage.growth_stage_contents) %></p>
               </div>
             </div>
-          </div>
-        </article>
-      <% end %>
+          </article>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
