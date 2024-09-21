@@ -10,18 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_09_18_020626) do
+ActiveRecord::Schema[7.2].define(version: 2024_09_20_161339) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "diaries", force: :cascade do |t|
     t.string "title", null: false
-    t.text "content", null: false
+    t.text "summary_content", null: false
+    t.string "thumbnail_image"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "diary_image"
     t.index ["user_id"], name: "index_diaries_on_user_id"
+  end
+
+  create_table "growth_stages", force: :cascade do |t|
+    t.bigint "diary_id", null: false
+    t.string "stage_name"
+    t.text "description"
+    t.string "image"
+    t.text "growth_stage_contents"
+    t.index ["diary_id"], name: "index_growth_stages_on_diary_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -41,4 +50,5 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_18_020626) do
   end
 
   add_foreign_key "diaries", "users"
+  add_foreign_key "growth_stages", "diaries"
 end

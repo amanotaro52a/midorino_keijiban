@@ -12,5 +12,10 @@ ja:
         password_confirmation: パスワード確認
       diary:
         title: タイトル
-        content: 本文
-        diary_image: サムネイル
+        summary_content: 概要
+        growth_stage_contents: 成長段階
+        thumbnail_image: サムネイル
+  buttons:
+    add: "成長段階を追加"
+    save: "保存"
+    destroy: "成長段階を削除"

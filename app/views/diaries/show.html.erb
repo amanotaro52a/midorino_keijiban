@@ -2,31 +2,52 @@
   <div class="row mb-3">
     <div class="col-lg-8 offset-lg-2">
       <h1><%= t('.title') %></h1>
+
+      <!-- サマリー内容とサムネイル画像のカード -->
       <article class="card">
-        <div class="card-content">
+        <div class="card-body">
           <div class="row">
-            <div class="col-md-3">
-              <%= image_tag @diary.diary_image_url, width: "300", height: "200", class: "card-img-top img-fluid" %>
+            <!-- サムネイル画像表示 -->
+            <div class="col-md-5">
+              <%= image_tag @diary.thumbnail_image.url, width: "300", height: "200", class: "card-img-top img-fluid" %>
             </div>
-            <div class="col-md-9">
+            <!-- タイトル、作成者、作成日、編集/削除ボタン -->
+            <div class="col-md-7">
               <h3 style="display: inline;"><%= @diary.title %></h3>
               <ul class="list-inline">
                 <li class="list-inline-item"><%= "by #{@diary.user.decorate.name}" %></li>
                 <li class="list-inline-item"><%= l @diary.created_at, format: :long %></li>
               </ul>
+              <p><%= simple_format(@diary.summary_content) %></p>
               <div class='d-flex justify-content-end'>
-                <%= link_to edit_diary_path(@diary), id: "button-edit-#{@diary.id}" do %>
-                  <i class='bi bi-pencil-fill'></i>
+                <%= link_to edit_diary_path(@diary), id: "button-edit-#{@diary.id}", class: "btn btn-success me-2" do %>
+                  <i class='bi bi-pencil-fill'></i> <%= t('defaults.edit') %>
                 <% end %>
-                <%= link_to diary_path(@diary), id: "button-delete-#{@diary.id}", data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') } do%>
-                  <i class="bi bi-trash-fill"></i>
+                <%= link_to diary_path(@diary), id: "button-delete-#{@diary.id}", class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') } do%>
+                  <i class="bi bi-trash-fill"></i> <%= t('defaults.delete') %>
                 <% end %>
-              </div>
               </div>
             </div>
-            <p><%= simple_format(@diary.content) %></p>
           </div>
-        </article>
+        </div>
+      </article>
+
+      <!-- 成長過程の内容と画像のカード -->
+      <div id="growth-stage-contents">
+        <% @diary.growth_stages.each do |growth_stage| %>
+          <article class="card mb-3">
+            <div class="row">
+              <!-- 成長過程の画像表示 -->
+              <div class="col-md-3">
+                <%= image_tag growth_stage.image.url, width: "300", height: "200", class: "card-img-top img-fluid" if growth_stage.image? %>
+              </div>
+              <!-- 成長過程の内容表示 -->
+              <div class="col-md-9">
+                <p><%= simple_format(growth_stage.growth_stage_contents) %></p>
+              </div>
+            </div>
+          </article>
+        <% end %>
       </div>
     </div>
   </div>
