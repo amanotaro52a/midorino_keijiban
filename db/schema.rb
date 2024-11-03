@@ -34,7 +34,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_20_161339) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "name"
     t.string "email", null: false
     t.string "crypted_password"
     t.string "salt"
@@ -43,10 +43,12 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_20_161339) do
     t.datetime "reset_password_email_sent_at"
     t.string "remember_me_token"
     t.datetime "remember_me_token_expires_at"
+    t.integer "access_count_to_reset_password_page", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "diaries", "users"
