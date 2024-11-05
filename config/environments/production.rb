@@ -91,7 +91,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-
+  config.action_mailer.default_url_options = { host: 'infinite-coast-76610.herokuapp.com' }
   # Enable DNS rebinding protection and other `Host` header attacks.
   # config.hosts = [
   #   "example.com",     # Allow requests from example.com
@@ -103,7 +103,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     user_name: 'apikey', # 文字通り'apikey'と記述します
     password: ENV['SENDGRID_API_KEY'],
-    domain: 'your-app-name.herokuapp.com',
+    domain: 'infinite-coast-76610.herokuapp.com',
     address: 'smtp.sendgrid.net',
     port: 587,
     authentication: :plain,
