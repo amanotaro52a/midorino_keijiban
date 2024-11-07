@@ -10,4 +10,9 @@ class UserMailer < ApplicationMailer
     mail(to: user.email,
          subject: t('defaults.password_reset'))
   end
+
+  def test_email(to)
+    @user = "Hello!"
+    mail(to: to, subject: 'Test Email')
+  end
 end

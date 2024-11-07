@@ -35,7 +35,7 @@ module Myapp
     # Add the following block to load production settings from production.yml
     config.before_configuration do
       env_file = File.join(Rails.root, 'config', 'settings', 'production.yml')
-      if File.exists?(env_file)
+      if File.exist?(env_file)
         settings = YAML.load_file(env_file)[Rails.env] || {}  # nilチェックを追加
         settings.each do |key, value|
           ENV[key.to_s] = value.to_s
