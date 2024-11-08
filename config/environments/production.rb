@@ -93,11 +93,11 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
   config.action_mailer.default_url_options = {
-    protocol: 'https',
-    host: 'em8825.midorino-keijiban.com'
+    host: Settings.default_url_options.host,
+    protocol: Settings.default_url_options.protocol
   }
 
-  Rails.application.routes.default_url_options[:host] = 'em8825.midorino-keijiban.com'
+  Rails.application.routes.default_url_options[:host] = Settings.default_url_options.host
   # Enable DNS rebinding protection and other `Host` header attacks.
   # config.hosts = [
   #   "example.com",     # Allow requests from example.com
@@ -106,13 +106,5 @@ Rails.application.configure do
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    user_name: 'apikey',                # Use 'apikey' for SendGrid authentication.
-    password: ENV['SENDGRID_API_KEY'],  # Use SendGrid API key from environment variables.
-    domain: 'em8825.midorino-keijiban.com',  # Set sending domain.
-    address: 'smtp.sendgrid.net',       # Set SMTP server.
-    port: 587,                          # Port number for SendGrid.
-    authentication: 'plain',            # Authentication method.
-    enable_starttls_auto: true          # Enable TLS for security.
-  }
+  config.action_mailer.smtp_settings = Settings.smtp_settings.to_h
 end
