@@ -92,9 +92,12 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  config.action_mailer.default_url_options = { host: 'infinite-coast-76610.herokuapp.com', protocol: 'https' }
+  config.action_mailer.default_url_options = {
+    host: Settings.default_url_options.host,
+    protocol: Settings.default_url_options.protocol
+  }
 
-  Rails.application.routes.default_url_options[:host] = 'infinite-coast-76610.herokuapp.com'
+  Rails.application.routes.default_url_options[:host] = Settings.default_url_options.host
   # Enable DNS rebinding protection and other `Host` header attacks.
   # config.hosts = [
   #   "example.com",     # Allow requests from example.com
