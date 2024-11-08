@@ -28,7 +28,7 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fall back to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = true
+  config.assets.compile = false
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.asset_host = "http://assets.example.com"
@@ -92,10 +92,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  config.action_mailer.default_url_options = {
-    host: Settings.default_url_options.host,
-    protocol: Settings.default_url_options.protocol
-  }
+  config.action_mailer.default_url_options = { host: 'infinite-coast-76610.herokuapp.com' }
 
   Rails.application.routes.default_url_options[:host] = Settings.default_url_options.host
   # Enable DNS rebinding protection and other `Host` header attacks.
