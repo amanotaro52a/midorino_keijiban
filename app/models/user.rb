@@ -10,4 +10,8 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   has_many :diaries, dependent: :destroy
   has_one_attached :avatar
+  def deliver_reset_password_instructions!
+    # Sorcery のデフォルトのパスワードリセット処理を呼び出す
+    super
+  end
 end
