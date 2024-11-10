@@ -94,11 +94,11 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = {
-    host: Settings.default_url_options.host,
-    protocol: Settings.default_url_options.protocol
+    host: ENV['default_url_options.host'],  # production.yml から読み込んだ host を利用
+    protocol: ENV['default_url_options.protocol']  # protocol を利用
   }
 
-  Rails.application.routes.default_url_options[:host] = Settings.default_url_options.host
+  Rails.application.routes.default_url_options[:host] = ENV['default_url_options.host']
   # Enable DNS rebinding protection and other `Host` header attacks.
   # config.hosts = [
   #   "example.com",     # Allow requests from example.com
@@ -106,5 +106,13 @@ Rails.application.configure do
   # ]
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
-  config.action_mailer.smtp_settings = Settings.smtp_settings.to_h
+  config.action_mailer.smtp_settings = {
+    user_name: ENV['smtp_settings.user_name'],
+    password: ENV['smtp_settings.password'],  # SendGridのAPIキー
+    domain: ENV['smtp_settings.domain'],
+    address: ENV['smtp_settings.address'],
+    port: ENV['smtp_settings.port'],
+    authentication: ENV['smtp_settings.authentication'],
+    enable_starttls_auto: ENV['smtp_settings.enable_starttls_auto']
+  }
 end
