@@ -41,7 +41,7 @@ Rails.application.configure do
   # caching is enabled.
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.delivery_method = :letter_opener_web
+  config.action_mailer.delivery_method = :sntp
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
 
   # Print deprecation notices to the Rails logger.
@@ -81,17 +81,16 @@ Rails.application.configure do
   # config.generators.apply_rubocop_autocorrect_after_generate!
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-   user_name: 'apikey', # SendGrid APIキー用のユーザー名
-   password: 'your_sendgrid_api_key', # ここに実際のSendGrid APIキーを入力
-   address: 'smtp.sendgrid.net',
+   user_name: Rails.application.credentials.gmail[:user_name]
+   password: Rails.application.credentials.gmail[:password], # ここに実際のSendGrid APIキーを入力
+   address: 'smtp.gmail.com',
+   domain: 'gmail.com',
    port: 587,
-   domain: 'infinite-coast-76610-6cf707f3e38e.herokuapp.com'
-   authentication: :plain,
-   enable_starttls_auto: true
+   authentication: :login
   }
 
  # ログにメール送信内容を表示（開発環境で便利）
  config.action_mailer.raise_delivery_errors = true
  config.action_mailer.perform_deliveries = true
- config.action_mailer.default_url_options = { host: 'localhost:3000' }
+ 
 end
