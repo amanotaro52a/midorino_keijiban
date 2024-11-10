@@ -3,7 +3,7 @@ default_url_options:
   host: 'infinite-coast-76610-6cf707f3e38e.herokuapp.com'
 
 smtp_settings:
-  user_name: 'apikey'
+  user_name: 'apikey'  # 文字通り'apikey'と記述します
   password: <%= ENV['SENDGRID_API_KEY'] %>
   domain: 'infinite-coast-76610-6cf707f3e38e.herokuapp.com'
   address: 'smtp.sendgrid.net'
