@@ -4,7 +4,7 @@ default_url_options:
 
 smtp_settings:
   user_name: 'apikey'
-  password: 'SENDGRID_API_KEY'  # これがENVから読み込まれる
+  password: <%= ENV['SENDGRID_API_KEY'] %>
   domain: 'infinite-coast-76610-6cf707f3e38e.herokuapp.com'
   address: 'smtp.sendgrid.net'
   port: 587
