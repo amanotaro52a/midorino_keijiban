@@ -107,7 +107,7 @@ Rails.application.configure do
     port: 587,
     user_name: 'apikey', # SendGridの環境変数
     password: ENV['SENDGRID_API_KEY'], # SendGridの環境変数
-    domain: 'herokuapp.com'
+    domain: 'herokuapp.com',
     authentication: 'plain',
     enable_starttls_auto: true
   }
