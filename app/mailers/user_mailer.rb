@@ -7,9 +7,9 @@ class UserMailer < ApplicationMailer
   #
   def reset_password_email(user)
     @user = User.find(user.id)
-    @url  = edit_password_reset_url(@user.reset_password_token)
-    mail(to: user.email,
-         subject: t('defaults.password_reset'))
+    # Heroku環境のURLを生成
+    @url = edit_password_reset_url(@user.reset_password_token, host: "infinite-coast-76610-6cf707f3e38e.herokuapp.com")
+    mail(to: user.email, subject: t('defaults.password_reset'))
   end
 
   def test_email(to)
