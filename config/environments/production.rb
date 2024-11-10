@@ -93,12 +93,8 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = {
-    host: Settings.default_url_options.host,
-    protocol: Settings.default_url_options.protocol
-  }
-
-  Rails.application.routes.default_url_options[:host] = Settings.default_url_options.host
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_url_options = { host: 'infinite-coast-76610-6cf707f3e38e.herokuapp.com', protocol: 'https' }
   # Enable DNS rebinding protection and other `Host` header attacks.
   # config.hosts = [
   #   "example.com",     # Allow requests from example.com
@@ -106,4 +102,13 @@ Rails.application.configure do
   # ]
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
-  config.action_mailer.smtp_settings = Settings.smtp_settings.to_h
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.sendgrid.net',
+    port: 587,
+    domain: 'infinite-coast-76610-6cf707f3e38e.herokuapp.com',
+    user_name: 'apikey', # SendGridの環境変数
+    password: ENV['SENDGRID_PASSWORD'], # SendGridの環境変数
+    authentication: 'plain',
+    enable_starttls_auto: true
+  }
+end  
