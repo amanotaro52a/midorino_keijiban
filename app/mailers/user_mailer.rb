@@ -5,16 +5,15 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.reset_password_email.subject
   #
-  def reset_password_email(user)
-    user.deliver_reset_password_instructions! unless user.reset_password_token
-    @user = user
-    # Heroku環境のURLを生成
-    @url = edit_password_reset_url(@user.reset_password_token, host: "localhost:3000")
-    mail(to: user.email, subject: t('defaults.password_reset'))
+  def reset_password_email
+    @user = params[:user]
+    # Heroku上でのアプリURLをベースにし、@user.reset_password_tokenを含める
+    @url = "#{Rails.application.routes.default_url_options[:host]}/password_resets/#{@user.reset_password_token}/edit"
+    mail(to: @user.email, subject: t('defaults.password_reset'))
   end
 
-  def test_email(to)
-    @user = "Hello!"
-    mail(to: to, subject: 'Test Email')
+  def welcome_email(user)
+    @user = user
+    mail(to: @user.email, subject: '私の素敵なサイトへようこそ')
   end
 end
