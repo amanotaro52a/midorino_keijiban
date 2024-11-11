@@ -103,11 +103,12 @@ Rails.application.configure do
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    user_name: Rails.application.credentials.gmail[:user_name]
-    password: Rails.application.credentials.gmail[:password], # ここに実際のSendGrid APIキーを入力
     address: 'smtp.gmail.com',
-    domain: 'gmail.com',
     port: 587,
-    authentication: :login
+    user_name: ENV['SMTP_USER_NAME'],
+    password: ENV['SMTP_PASSWORD'],
+    domain: 'infinite-coast-76610-6cf707f3e38e.herokuapp.com',
+    authentication: 'plain',
+    enable_starttls_auto: true
   }
 end  
