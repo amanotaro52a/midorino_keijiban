@@ -7,6 +7,7 @@ class UserSessionsController < ApplicationController
     @user = login(params[:email], params[:password])
 
     if @user
+      auto_login(@user)
       redirect_to diaries_path, success: t('user_sessions.create.success')
     else
       flash.now[:danger] = t('user_sessions.create.failure')
