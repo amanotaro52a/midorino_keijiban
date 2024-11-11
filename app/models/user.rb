@@ -13,5 +13,6 @@ class User < ApplicationRecord
   def deliver_reset_password_instructions!
     # Sorcery のデフォルトのパスワードリセット処理を呼び出す
     super
+    UserMailer.reset_password_email(self).deliver_later
   end
 end
