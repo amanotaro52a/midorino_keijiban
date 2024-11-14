@@ -46,6 +46,9 @@ gem 'ransack'
 
 gem 'config'
 gem 'sendgrid-ruby'
+gem 'omniauth-google-oauth2'
+gem 'google-auth-library-ruby'
+
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"

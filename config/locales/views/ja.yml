@@ -52,6 +52,9 @@ ja:
       failure: ログインに失敗しました
     destroy:
       success: ログアウトしました
+  authentications:    
+    google_callback:
+      failure: "Google認証に失敗しました。再度お試しください。"  
   users:
     new:
       title: 会員登録

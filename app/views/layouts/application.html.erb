@@ -18,13 +18,13 @@
   </head>
 
   <body class="bg-orange-600">
-    <% if logged_in? %>
-      <%= render 'shared/header' %>
+    <% if current_user %> <!-- ログイン中のユーザーを確認 -->
+      <%= render 'shared/header' %> <!-- ログイン中のユーザーに対応するヘッダー -->
     <% else %>
-      <%= render 'shared/before_login_header' %>
+      <%= render 'shared/before_login_header' %> <!-- ログイン前のヘッダー -->
     <% end %>
-    <%= render 'shared/flash_message' %>
-    <%= yield %>
-    <%= render 'shared/footer' %>
+    <%= render 'shared/flash_message' %> <!-- フラッシュメッセージの表示 -->
+    <%= yield %> <!-- 他のビューが表示される -->
+    <%= render 'shared/footer' %> <!-- フッターの表示 -->
   </body>
 </html>
