@@ -46,6 +46,7 @@ gem 'ransack'
 
 gem 'config'
 gem 'sendgrid-ruby'
+
 gem 'omniauth-google-oauth2'
 gem 'google-auth-library-ruby'
 

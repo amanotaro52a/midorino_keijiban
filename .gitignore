@@ -39,10 +39,12 @@
 
 /node_modules
 
-config/settings/development.yml/.env
+
 config/settings.local.yml
 config/settings/*.local.yml
 config/environments/*.local.yml
 sendgrid.env
 sendgrid.env
+
 .env
+
