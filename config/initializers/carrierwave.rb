@@ -1,6 +1,7 @@
 require 'carrierwave/storage/fog'
 
 CarrierWave.configure do |config|
+  config.fog_provider = 'fog/google'
   config.fog_credentials = {
     provider: 'Google',
     google_project: ENV['GOOGLE_CLOUD_PROJECT'],
