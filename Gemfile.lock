@@ -495,7 +495,7 @@ DEPENDENCIES
   debug
   draper (= 4.0.2)
   faker
-  fog-google (~> 1.14)
+  fog-google (~> 1.24)
   jbuilder
   jsbundling-rails
   kaminari (= 1.2.2)
@@ -514,6 +514,9 @@ DEPENDENCIES
   turbo-rails
   tzinfo-data
   web-console
+
+RUBY VERSION
+   ruby 3.2.3p157
 
 BUNDLED WITH
    2.5.18
