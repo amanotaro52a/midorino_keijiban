@@ -16,6 +16,13 @@
     <%= f.file_field :thumbnail_image, class: "form-control", accept: 'image/*' %>
   </div>
 
+  <% if @diary.thumbnail_image_url.present? %>
+    <div class="mb-3">
+      <p>現在のサムネイル:</p>
+      <img src="<%= @diary.thumbnail_image_url %>" alt="Thumbnail Image" width="200" />
+    </div>
+  <% end %>
+
   <div id="growth-stage-contents">
     <%= f.fields_for :growth_stages do |growth_stage_form| %>
       <div class="mb-3 growth-stage-item">
