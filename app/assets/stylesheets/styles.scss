@@ -69,4 +69,21 @@
     max-width: 85%; /* 画像のサイズを調整 */
     max-height: 80%; /* 画像のサイズを調整 */
   }
+  /* オートコンプリート結果のスタイル */
+  .autocomplete-suggestions {
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .autocomplete-suggestions li {
+    padding: 8px;
+    cursor: pointer;
+  }
+
+  .autocomplete-suggestions li:hover {
+    background-color: #f1f1f1;
+  }
 }

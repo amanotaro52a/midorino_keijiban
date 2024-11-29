@@ -1,15 +1,14 @@
-<div data-controller="autocomplete" data-autocomplete-url-value="<%= search_diaries_path %>" data-autocomplete-submit-on-enter-value="true" role="combobox">
-  <%= search_form_for q, url: url, method: :get do |f| %>
-    <div class="input-group mb-3">
-      <%= f.search_field :title_or_summary_content_cont, 
-          class: 'form-control', 
-          data: { "autocomplete-target": "input" }, 
-          placeholder: t('defaults.search_word') %>
-      <input type="hidden" name="diary_id" data-autocomplete-target="hidden" />
-      <ul class="list-group" data-autocomplete-target="results" style="max-height: 10rem; overflow-y: auto;"></ul>
-      <div class="input-group-append">
-        <%= f.submit class: 'btn btn-success' %>
-      </div>
+<%= search_form_for q, url: url do |f| %>
+  <div class="input-group mb-3" 
+       data-controller="autocomplete" 
+       data-autocomplete-url-value="<%= url_for(action: 'index', controller: 'diaries', only_path: true) %>">
+    <%= f.search_field :title_or_summary_content_or_plant_name_or_variety_name_or_cultivation_method_or_cultivation_location_cont, 
+                       class: 'form-control', 
+                       placeholder: t('defaults.search_word'), 
+                       data: { autocomplete_target: 'input' } %>
+    <div class="input-group-append">
+      <%= f.submit class: 'btn btn-success' %>
     </div>
-  <% end %>
-</div>
+  </div>
+<% end %>
+

@@ -5,6 +5,13 @@ class DiariesController < ApplicationController
     @diaries = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
   end
 
+  def search
+    @cats = Cat.where("name like ?", "%#{params[:q]}%")
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def new
     @diary = Diary.new
   end

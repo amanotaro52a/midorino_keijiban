@@ -1,0 +1,6 @@
+<% diaries.each do |diary| %>
+    <li class="list-group-item" role="option">
+      <a href="<%= diary_path(diary) %>"><%= diary.title %></a>
+    </li>
+  <% end %>
+  
