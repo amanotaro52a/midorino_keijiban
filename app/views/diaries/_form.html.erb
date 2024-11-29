@@ -7,11 +7,6 @@
   </div>
 
   <div class="mb-3">
-    <%= f.label :summary_content %>
-    <%= f.text_area :summary_content, class: "form-control", rows: "10" %>
-  </div>
-
-  <div class="mb-3">
     <%= f.label :thumbnail_image %>
     <%= f.file_field :thumbnail_image, class: "form-control", accept: 'image/*' %>
   </div>
@@ -22,6 +17,37 @@
       <img src="<%= @diary.thumbnail_image_url %>" alt="Thumbnail Image" width="200" />
     </div>
   <% end %>
+  
+  <div class="mb-3 d-flex flex-wrap gap-3">
+    <div>
+      <%= f.label :plant_name %>
+      <%= f.text_field :plant_name, class: "form-control", placeholder: "植物名を入力" %>
+    </div>
+
+    <div>
+      <%= f.label :variety_name %>
+      <%= f.text_field :variety_name, class: "form-control", placeholder: "品種名を入力" %>
+    </div>
+
+    <div>
+      <%= f.label :cultivation_method %>
+      <%= f.select :cultivation_method, 
+                   options_for_select(["地植え", "プランター・鉢植え", "その他"]), 
+                   { include_blank: "選択してください" }, 
+                   class: "form-control" %>
+    </div>
+
+    <div>
+      <%= f.label :cultivation_location %>
+      <%= f.text_field :cultivation_location, class: "form-control", placeholder: "例: 自宅庭, 屋内" %>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :summary_content %>
+    <%= f.text_area :summary_content, class: "form-control", rows: "10" %>
+  </div>
+
 
   <div id="growth-stage-contents">
     <%= f.fields_for :growth_stages do |growth_stage_form| %>

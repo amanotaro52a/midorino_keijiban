@@ -18,6 +18,10 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_20_161339) do
     t.string "title", null: false
     t.text "summary_content", null: false
     t.string "thumbnail_image"
+    t.string "plant_name"
+    t.string "variety_name"
+    t.string "cultivation_location"
+    t.string "cultivation_method"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

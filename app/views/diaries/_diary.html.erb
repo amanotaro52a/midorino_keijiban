@@ -1,6 +1,6 @@
-<div class="col-sm-12 col-lg-4 mb-5">
+<div class="col-sm-12 col-lg-3 mb-5">
   <div id="diary-id-<%= diary.id %>">
-    <div class="card">
+    <div class="card" style="width: 18rem;">
       <%= image_tag diary.thumbnail_image_url, class: "card-img-top", width: "350", height: "200" %>
       <div class="card-content">
         <div class="d-flex">
@@ -11,6 +11,10 @@
         <ul class='ms-auto'>
           <li><i class="bi bi-person"></i><%= diary.user.decorate.full_name %></li>
           <li><i class="bi bi-calendar"></i><%= l diary.created_at, format: :short %></li>
+          <li><strong>植物名:</strong> <%= diary.plant_name %></li>
+          <li><strong>品種名:</strong> <%= diary.variety_name.presence || "未登録" %></li>
+          <li><strong>栽培形態:</strong> <%= diary.cultivation_method.presence || "未登録" %></li>
+          <li><strong>栽培場所:</strong> <%= diary.cultivation_location.presence || "未登録" %></li>
         </ul>
       </div>
     </div>

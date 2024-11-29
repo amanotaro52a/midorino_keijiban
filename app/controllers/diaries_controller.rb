@@ -1,5 +1,6 @@
 class DiariesController < ApplicationController
   def index
+    # ransackによる検索
     @q = Diary.ransack(params[:q])
     @diaries = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
   end
@@ -54,7 +55,15 @@ class DiariesController < ApplicationController
   private
 
   def diary_params
-    params.require(:diary).permit(:title, :summary_content, :thumbnail_image,
-    growth_stages_attributes: [:id, :growth_stage_contents, :image, :_destroy])
+    params.require(:diary).permit(
+      :title, 
+      :summary_content, 
+      :thumbnail_image, 
+      :plant_name, 
+      :variety_name, 
+      :cultivation_method, 
+      :cultivation_location,
+      growth_stages_attributes: [:id, :growth_stage_contents, :image, :_destroy]
+    )
   end
 end

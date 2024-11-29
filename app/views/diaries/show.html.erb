@@ -18,7 +18,16 @@
                 <li class="list-inline-item"><%= "by #{@diary.user.decorate.name}" %></li>
                 <li class="list-inline-item"><%= l @diary.created_at, format: :long %></li>
               </ul>
-              <p><%= simple_format(@diary.summary_content) %></p>
+              
+              <!-- 植物名、品種名、栽培形態、栽培場所の情報 -->
+              <ul class="list-unstyled">
+                <li><strong>植物名:</strong> <%= @diary.plant_name %></li>
+                <li><strong>品種名:</strong> <%= @diary.variety_name.presence || "未登録" %></li>
+                <li><strong>栽培形態:</strong> <%= @diary.cultivation_method.presence || "未登録" %></li>
+                <li><strong>栽培場所:</strong> <%= @diary.cultivation_location.presence || "未登録" %></li>
+                <p><%= simple_format(@diary.summary_content) %></p>
+              </ul>
+
               <div class='d-flex justify-content-end'>
                 <%= link_to edit_diary_path(@diary), id: "button-edit-#{@diary.id}", class: "btn btn-success me-2" do %>
                   <i class='bi bi-pencil-fill'></i> <%= t('defaults.edit') %>

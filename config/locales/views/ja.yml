@@ -62,6 +62,8 @@ ja:
   diaries:
     new:
       title: 日記作成
+    _form:  
+      growth_stage_destroy: この成長段階を削除
     show:
       title: 日記詳細
     index:
