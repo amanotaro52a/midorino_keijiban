@@ -42,6 +42,7 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "bootsnap", require: false
 
 gem 'faker'
+gem 'meta-tags'
 
 gem 'kaminari', '1.2.2'
 gem 'bootstrap5-kaminari-views'
