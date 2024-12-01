@@ -41,6 +41,9 @@ ja:
     create_diary: 日記作成
     bookmark_index: ブックマーク一覧
     profile: プロフィール
+  footer:
+    terms_of_service: 利用規約
+    privacy_policy: プライバシーポリシー
   user_sessions:
     new:
       title: ログイン
