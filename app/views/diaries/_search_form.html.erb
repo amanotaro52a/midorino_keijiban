@@ -2,36 +2,54 @@
 
   <!-- 植物名検索 -->
   <div class="col-auto">
-    <%= f.search_field :plant_name_cont, class: 'form-control', placeholder: '植物名', id: 'plant_name_search' %>
+    <%= f.search_field :plant_name_cont, 
+                       class: 'form-control', 
+                       placeholder: t('search_form.placeholders.plant_name'), 
+                       id: 'plant_name_search' %>
   </div>
-
 
   <!-- 品種名検索 -->
   <div class="col-auto">
-    <%= f.search_field :variety_name_cont, class: 'form-control', placeholder: '品種名' %>
+    <%= f.search_field :variety_name_cont, 
+                       class: 'form-control', 
+                       placeholder: t('search_form.placeholders.variety_name') %>
   </div>
 
   <!-- 栽培方法 -->
   <div class="col-auto">
     <%= f.select :cultivation_method_eq, 
-                 [['地植え', '地植え'], ['プランター・鉢植え', 'プランター・鉢植え'], ['その他', 'その他']], 
-                 { include_blank: '栽培形態を選択' }, class: 'form-select' %>
+                 options_for_select(
+                   [[t('search_form.options.cultivation_methods.ground'), '地植え'], 
+                    [t('search_form.options.cultivation_methods.planter'), 'プランター・鉢植え'], 
+                    [t('search_form.options.cultivation_methods.other'), 'その他']]
+                 ), 
+                 { include_blank: t('search_form.placeholders.cultivation_method') }, 
+                 class: 'form-select' %>
   </div>
 
   <!-- 栽培場所 -->
   <div class="col-auto">
     <%= f.select :cultivation_location_eq, 
-                 [['畑', '畑'], ['庭', '庭'], ['ベランダ', 'ベランダ'], ['室内', '室内'], ['その他', 'その他']], 
-                 { include_blank: '栽培場所を選択' }, class: 'form-select' %>
+                 options_for_select(
+                   [[t('search_form.options.cultivation_locations.field'), '畑'], 
+                    [t('search_form.options.cultivation_locations.garden'), '庭'], 
+                    [t('search_form.options.cultivation_locations.balcony'), 'ベランダ'], 
+                    [t('search_form.options.cultivation_locations.indoor'), '室内'], 
+                    [t('search_form.options.cultivation_locations.other'), 'その他']]
+                 ), 
+                 { include_blank: t('search_form.placeholders.cultivation_location') }, 
+                 class: 'form-select' %>
   </div>
 
   <!-- フリーキーワード検索 -->
   <div class="col-auto">
-    <%= f.search_field :title_or_summary_content_cont, class: 'form-control', placeholder: 'タイトルまたは概要' %>
+    <%= f.search_field :title_or_summary_content_cont, 
+                       class: 'form-control', 
+                       placeholder: t('search_form.placeholders.free_keyword') %>
   </div>
 
   <!-- 検索ボタン -->
   <div class="col-auto">
-    <%= f.submit '検索', class: 'btn btn-success' %>
+    <%= f.submit t('search_form.buttons.search'), class: 'btn btn-success' %>
   </div>
 <% end %>

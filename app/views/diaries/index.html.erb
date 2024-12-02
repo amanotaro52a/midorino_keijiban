@@ -4,6 +4,7 @@
       <%= render 'search_form', q: @q, url: diaries_path %>
     </div>
   </div>
+  
   <!-- 日記一覧 -->
   <div class="row">
     <div class="col-12">
@@ -11,7 +12,7 @@
         <% if @diaries.present? %>
           <%= render @diaries %>
         <% else %>
-          <div class="mb-3">日記がありません</div>
+          <div class="mb-3"><%= t('diaries.index.no_diaries') %></div>
         <% end %>
       </div>
       <%= paginate @diaries, theme: 'bootstrap-5' %>

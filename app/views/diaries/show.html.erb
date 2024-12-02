@@ -15,16 +15,16 @@
             <div class="col-md-7">
               <h3 style="display: inline;"><%= @diary.title %></h3>
               <ul class="list-inline">
-                <li class="list-inline-item"><%= "by #{@diary.user.decorate.name}" %></li>
+                <li class="list-inline-item"><%= t('.created_by', user_name: @diary.user.decorate.name) %></li>
                 <li class="list-inline-item"><%= l @diary.created_at, format: :long %></li>
               </ul>
               
               <!-- 植物名、品種名、栽培形態、栽培場所の情報 -->
               <ul class="list-unstyled">
-                <li><strong>植物名:</strong> <%= @diary.plant_name %></li>
-                <li><strong>品種名:</strong> <%= @diary.variety_name.presence || "未登録" %></li>
-                <li><strong>栽培形態:</strong> <%= @diary.cultivation_method.presence || "未登録" %></li>
-                <li><strong>栽培場所:</strong> <%= @diary.cultivation_location.presence || "未登録" %></li>
+                <li><strong><%= t('.plant_name') %>:</strong> <%= @diary.plant_name %></li>
+                <li><strong><%= t('.variety_name') %>:</strong> <%= @diary.variety_name.presence || t('.not_registered') %></li>
+                <li><strong><%= t('.cultivation_method') %>:</strong> <%= @diary.cultivation_method.presence || t('.not_registered') %></li>
+                <li><strong><%= t('.cultivation_location') %>:</strong> <%= @diary.cultivation_location.presence || t('.not_registered') %></li>
                 <p><%= simple_format(@diary.summary_content) %></p>
               </ul>
 

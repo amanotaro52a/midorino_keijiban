@@ -66,8 +66,19 @@ ja:
       growth_stage_destroy: この成長段階を削除
     show:
       title: 日記詳細
+      plant_name: 植物名
+      variety_name: 品種名
+      cultivation_method: 栽培方法
+      cultivation_location: 場所
+      not_registered: 未登録
     index:
+      plant_name: 植物名
+      variety_name: 品種名
+      cultivation_method: 栽培方法
+      cultivation_location: 場所
+      no_diaries: 日記がありません
       title: 日記一覧
+      not_registered: 未登録
     edit:
       title: 日記編集
   profiles:
@@ -89,3 +100,23 @@ ja:
       success: パスワードリセット手順を送信しました
     update:
       success: パスワードを変更しました 
+  search_form:
+    placeholders:
+      plant_name: 植物名を入力
+      variety_name: 品種名を入力
+      cultivation_method: 栽培形態を選択
+      cultivation_location: 栽培場所を選択
+      free_keyword: タイトルまたは概要を入力
+    options:
+      cultivation_methods:
+        ground: 地植え
+        planter: プランター・鉢植え
+        other: その他
+      cultivation_locations:
+        field: 畑
+        garden: 庭
+        balcony: ベランダ
+        indoor: 室内
+        other: その他
+    buttons:
+      search: 検索

@@ -5,16 +5,16 @@
       <div class="card-content">
         <div class="d-flex">
           <h5 class="card-title">
-            <%= link_to diary.title, diary_path(diary),class: "stretched-link text-decoration-none", style: "margin-left: 1.0em;"%>
+            <%= link_to diary.title, diary_path(diary), class: "stretched-link text-decoration-none", style: "margin-left: 1.0em;" %>
           </h5>
         </div>
         <ul class='ms-auto'>
           <li><i class="bi bi-person"></i><%= diary.user.decorate.full_name %></li>
           <li><i class="bi bi-calendar"></i><%= l diary.created_at, format: :short %></li>
-          <li><strong>植物名:</strong> <%= diary.plant_name %></li>
-          <li><strong>品種名:</strong> <%= diary.variety_name.presence || "未登録" %></li>
-          <li><strong>栽培形態:</strong> <%= diary.cultivation_method.presence || "未登録" %></li>
-          <li><strong>栽培場所:</strong> <%= diary.cultivation_location.presence || "未登録" %></li>
+          <li><strong><%= t('diaries.index.plant_name') %>:</strong> <%= diary.plant_name %></li>
+          <li><strong><%= t('diaries.index.variety_name') %>:</strong> <%= diary.variety_name.presence || t('diaries.index.not_registered') %></li>
+          <li><strong><%= t('diaries.index.cultivation_method') %>:</strong> <%= diary.cultivation_method.presence || t('diaries.index.not_registered') %></li>
+          <li><strong><%= t('diaries.index.cultivation_location') %>:</strong> <%= diary.cultivation_location.presence || t('diaries.index.not_registered') %></li>
         </ul>
       </div>
     </div>
