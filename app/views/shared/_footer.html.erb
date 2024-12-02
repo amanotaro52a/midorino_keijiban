@@ -1,11 +1,13 @@
 <footer id='footer' class='footer-bottom navbar-light' style='background-color: #006400;'>
   <div class='container'>
-    <div class='row'>
-      <div class='col-sm-6 col-12'>
-        <div class='copyright'>
-        <p style='color: white;'>Copyright © 2024. AMANO</p>
-        </div>
+    <ul class='navbar-nav ms-auto main-nav align-items-left'>
+      <div class='col-sm-1 col-12', 'nav-item'>
+        <%= link_to t('footer.terms_of_service'), informations_terms_of_service_path, class: 'nav-link', style: 'color: white;' %>
       </div>
-    </div>
+      <div class='col-sm-3 col-12', 'nav-item'>
+        <%= link_to t('footer.privacy_policy'), informations_privacy_policy_path, class: 'nav-link', style: 'color: white;' %>
+      </div>
+    </ul>  
+    <p style='color: white;'>Copyright © 2024. AMANO</p>
   </div>
 </footer>
