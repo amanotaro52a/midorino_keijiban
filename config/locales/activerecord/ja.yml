@@ -15,7 +15,15 @@ ja:
         summary_content: 概要
         growth_stage_contents: 成長段階
         thumbnail_image: サムネイル
+        plant_name: 植物名
+        variety_name: 品種名
+        cultivation_method: 栽培形態
+        cultivation_location: 場所
+        growth_stage_contents: 成長段階の内容
   buttons:
     add: "成長段階を追加"
     save: "保存"
     destroy: "成長段階を削除"
+    destroy: 削除
+    add: 追加
+    save: 保存

@@ -1,16 +1,20 @@
-<div class="col-sm-12 col-lg-4 mb-5">
+<div class="col-sm-12 col-lg-3 mb-5">
   <div id="diary-id-<%= diary.id %>">
-    <div class="card">
+    <div class="card" style="width: 18rem;">
       <%= image_tag diary.thumbnail_image_url, class: "card-img-top", width: "350", height: "200" %>
       <div class="card-content">
         <div class="d-flex">
           <h5 class="card-title">
-            <%= link_to diary.title, diary_path(diary),class: "stretched-link text-decoration-none", style: "margin-left: 1.0em;"%>
+            <%= link_to diary.title, diary_path(diary), class: "stretched-link text-decoration-none", style: "margin-left: 1.0em;" %>
           </h5>
         </div>
         <ul class='ms-auto'>
           <li><i class="bi bi-person"></i><%= diary.user.decorate.full_name %></li>
           <li><i class="bi bi-calendar"></i><%= l diary.created_at, format: :short %></li>
+          <li><strong><%= t('diaries.index.plant_name') %>:</strong> <%= diary.plant_name %></li>
+          <li><strong><%= t('diaries.index.variety_name') %>:</strong> <%= diary.variety_name.presence || t('diaries.index.not_registered') %></li>
+          <li><strong><%= t('diaries.index.cultivation_method') %>:</strong> <%= diary.cultivation_method.presence || t('diaries.index.not_registered') %></li>
+          <li><strong><%= t('diaries.index.cultivation_location') %>:</strong> <%= diary.cultivation_location.presence || t('diaries.index.not_registered') %></li>
         </ul>
       </div>
     </div>

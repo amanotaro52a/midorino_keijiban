@@ -7,11 +7,6 @@
   </div>
 
   <div class="mb-3">
-    <%= f.label :summary_content %>
-    <%= f.text_area :summary_content, class: "form-control", rows: "10" %>
-  </div>
-
-  <div class="mb-3">
     <%= f.label :thumbnail_image %>
     <%= f.file_field :thumbnail_image, class: "form-control", accept: 'image/*' %>
   </div>
@@ -22,6 +17,39 @@
       <img src="<%= @diary.thumbnail_image_url %>" alt="Thumbnail Image" width="200" />
     </div>
   <% end %>
+  
+  <div class="mb-3 d-flex flex-wrap gap-3">
+    <div>
+      <%= f.label :plant_name %>
+      <%= f.text_field :plant_name, class: "form-control", placeholder: "カタカナで入力" %>
+    </div>
+
+    <div>
+      <%= f.label :variety_name %>
+      <%= f.text_field :variety_name, class: "form-control", placeholder: "例：種子名など" %>
+    </div>
+
+    <div>
+      <%= f.label :cultivation_method %>
+      <%= f.select :cultivation_method, 
+                   options_for_select(["地植え", "プランター・鉢植え", "その他"]), 
+                   { include_blank: "選択してください" }, 
+                   class: "form-control" %>
+    </div>
+
+    <div>
+      <%= f.label :cultivation_location %>
+      <%= f.select :cultivation_location, 
+                   options_for_select(["室内", "庭", "ベランダ", "畑", "その他"]), 
+                   { include_blank: "選択してください" }, 
+                   class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :summary_content %>
+    <%= f.text_area :summary_content, class: "form-control", rows: "10" %>
+  </div>
 
   <div id="growth-stage-contents">
     <%= f.fields_for :growth_stages do |growth_stage_form| %>
@@ -64,7 +92,7 @@
     newItem.classList.add('mb-3', 'growth-stage-item');
 
     newItem.innerHTML = `
-      <label for="diary_growth_stages_attributes_${index}_growth_stage_contents">成長段階</label>
+      <label for="diary_growth_stages_attributes_${index}_growth_stage_contents"><%= t('activerecord.attributes.diary.growth_stage_contents') %></label>
       <textarea name="diary[growth_stages_attributes][${index}][growth_stage_contents]" class="form-control growth_stage_content" rows="4" placeholder="⚪︎月⚪︎日"></textarea>
       <input type="file" name="diary[growth_stages_attributes][${index}][image]" class="form-control" accept="image/*">
 
@@ -72,7 +100,7 @@
       <input type="hidden" name="diary[growth_stages_attributes][${index}][_destroy]" value="false" class="destroy-hidden-field">
 
       <!-- 削除ボタン -->
-      <button type="button" class="btn btn-danger remove-growth-stage-btn">この成長段階を削除</button>
+      <button type="button" class="btn btn-danger remove-growth-stage-btn"><%= t('buttons.destroy') %></button>
     `;
 
     container.appendChild(newItem);
