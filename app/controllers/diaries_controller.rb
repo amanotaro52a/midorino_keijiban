@@ -1,10 +1,17 @@
 class DiariesController < ApplicationController
   skip_before_action :require_login, only: %i[index]
   def index
-    # ransackによる検索
+    Rails.logger.info("Params: #{params[:q]}")
     @q = Diary.ransack(params[:q])
-    @diaries = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
+    Rails.logger.info("Search Object: #{@q.inspect}")
+    @diaries = @q.result(distinct: true)
+    Rails.logger.info("Result: #{@diaries.inspect}")
+  rescue => e
+    Rails.logger.error("Error: #{e.message}")
+    Rails.logger.error(e.backtrace.join("\n"))
+    raise
   end
+  
 
   def new
     @diary = Diary.new
