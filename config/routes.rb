@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
   get 'terms_of_service', to: 'informations#terms_of_service', as: :informations_terms_of_service
   get 'privacy_policy', to: 'informations#privacy_policy', as: :informations_privacy_policy
+  get 'how_to_used', to: 'informations#how_to_used', as: :informations_how_to_used
 
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
