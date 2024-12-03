@@ -22,6 +22,9 @@ ja:
       not_updated: "%{item}を更新出来ませんでした"
       deleted: "%{item}を削除しました"
       require_login: ログインしてください
+  informations:
+    how_to_used:
+      create: 会員登録    
   user_sessions:
     new:
       title: ログイン
@@ -41,6 +44,7 @@ ja:
     create_diary: 日記作成
     bookmark_index: ブックマーク一覧
     profile: プロフィール
+    how_to_used: 使い方
   footer:
     terms_of_service: 利用規約
     privacy_policy: プライバシーポリシー
