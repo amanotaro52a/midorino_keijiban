@@ -1,0 +1,29 @@
+.user-sessions-container {
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+
+  .button-container {
+    display: flex;
+    flex-direction: column; // デフォルトは縦並び
+    align-items: center;
+
+    .btn {
+      margin-bottom: 20px; // ボタンの間隔（縦並び）
+    }
+
+    @media (min-width: 768px) {
+      flex-direction: row; // 横並びに変更
+      justify-content: center;
+
+      .btn {
+        margin-bottom: 0; // 縦間隔をリセット
+        margin-right: 20px; // 横間隔を設定
+        &:last-child {
+          margin-right: 0; // 最後のボタンは余白をなくす
+        }
+      }
+    }
+  }
+}
+

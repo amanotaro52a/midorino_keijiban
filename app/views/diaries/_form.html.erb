@@ -1,24 +1,24 @@
 <%= form_with model: @diary do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
-  <div class="mb-3">
+  <div class="mb-auto">
     <%= f.label :title %>
     <%= f.text_field :title, class: "form-control" %>
   </div>
 
-  <div class="mb-3">
+  <div class="mb-auto">
     <%= f.label :thumbnail_image %>
     <%= f.file_field :thumbnail_image, class: "form-control", accept: 'image/*' %>
   </div>
 
   <% if @diary.thumbnail_image_url.present? %>
-    <div class="mb-3">
+    <div class="mb-auto">
       <p>現在のサムネイル:</p>
-      <img src="<%= @diary.thumbnail_image_url %>" alt="Thumbnail Image" width="200" />
+      <img src="<%= @diary.thumbnail_image_url %>" alt="Thumbnail Image" width="200" />     
     </div>
   <% end %>
   
-  <div class="mb-3 d-flex flex-wrap gap-3">
+  <div class="mb-auto d-flex flex-wrap gap-2">
     <div>
       <%= f.label :plant_name %>
       <%= f.text_field :plant_name, class: "form-control", placeholder: "カタカナで入力" %>
@@ -46,14 +46,14 @@
     </div>
   </div>
 
-  <div class="mb-3">
+  <div class="mb-auto">
     <%= f.label :summary_content %>
     <%= f.text_area :summary_content, class: "form-control", rows: "10" %>
   </div>
 
   <div id="growth-stage-contents">
     <%= f.fields_for :growth_stages do |growth_stage_form| %>
-      <div class="mb-3 growth-stage-item">
+      <div class="mb-auto growth-stage-item">
         <%= growth_stage_form.hidden_field :id %>
         <%= growth_stage_form.label :growth_stage_contents, t('activerecord.attributes.diary.growth_stage_contents') %>
         <%= growth_stage_form.text_area :growth_stage_contents, class: "form-control growth_stage_content", rows: "4", placeholder: "成長段階を入力" %>

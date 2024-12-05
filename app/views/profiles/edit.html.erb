@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-10 col-lg-8 mx-auto">
-      <h1><%= t('.title') %></h1>
+      <h1 style="color: #006400;"><%= t('.title') %></h1>
       <%= form_with model: @user, url: profile_path, method: :put do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
         <div class="mb-3">
@@ -26,9 +26,6 @@
         </div>
         <%= f.submit class: "btn btn-success" %>
       <% end %>
-      <div class='text-center'>
-        <%= link_to t('.to_login_page'), login_path %>
-      </div>
     </div>
   </div>
 </div>

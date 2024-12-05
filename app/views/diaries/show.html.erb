@@ -1,7 +1,7 @@
 <div class="container pt-5">
   <div class="row mb-3">
-    <div class="col-lg-8 offset-lg-2">
-      <h1><%= t('.title') %></h1>
+    <div class="col-lg-12 offset-auto">
+      <h1 style="color: #006400;"><%= t('.title') %></h1>
 
       <!-- サマリー内容とサムネイル画像のカード -->
       <article class="card">
@@ -27,7 +27,6 @@
                 <li><strong><%= t('.cultivation_location') %>:</strong> <%= @diary.cultivation_location.presence || t('.not_registered') %></li>
                 <p><%= simple_format(@diary.summary_content) %></p>
               </ul>
-
               <div class='d-flex justify-content-end'>
                 <%= link_to edit_diary_path(@diary), id: "button-edit-#{@diary.id}", class: "btn btn-success me-2" do %>
                   <i class='bi bi-pencil-fill'></i> <%= t('defaults.edit') %>
@@ -36,6 +35,18 @@
                   <i class="bi bi-trash-fill"></i> <%= t('defaults.delete') %>
                 <% end %>
               </div>
+              <style>
+                .btn {
+                  white-space: nowrap; /* テキストが折り返さないようにする */
+                  min-width: 120px; /* ボタンの最小幅を設定 */
+                }
+
+                @media (max-width: 375px) {
+                  .d-flex {
+                  flex-wrap: nowrap; /* フレックスの折り返しを防ぐ */
+                  }
+                }
+              </style>
             </div>
           </div>
         </div>

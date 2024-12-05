@@ -24,17 +24,10 @@ ja:
       require_login: ログインしてください
   informations:
     how_to_used:
-      create: 会員登録    
-  user_sessions:
-    new:
-      title: ログイン
-      login: ログイン
-      create: 会員登録
-      to_register_page: 登録ページへ
-      password_forget: パスワードをお忘れの方はこちら
+      create: 新規会員登録はこちら
   users:
     new:
-      title: 会員登録
+      title: 新規会員登録
       to_login_page: ログインページへ
   header:
     login: ログイン
@@ -52,7 +45,7 @@ ja:
     new:
       title: ログイン
       login: ログイン
-      create: 会員登録
+      create: 新規会員登録はこちら
       password_forget: パスワードをお忘れの方はこちら
     create:
       success: ログインしました
@@ -61,7 +54,7 @@ ja:
       success: ログアウトしました
   users:
     new:
-      title: 会員登録
+      title: 新規会員登録
       to_login_page: ログインページへ
     create:
       success: 会員登録が完了しました
@@ -109,11 +102,11 @@ ja:
       success: パスワードを変更しました 
   search_form:
     placeholders:
-      plant_name: 植物名を入力
-      variety_name: 品種名を入力
-      cultivation_method: 栽培形態を選択
-      cultivation_location: 栽培場所を選択
-      free_keyword: タイトルまたは概要を入力
+      plant_name: 植物名
+      variety_name: 品種名
+      cultivation_method: 栽培形態
+      cultivation_location: 場所
+      free_keyword: タイトル
     options:
       cultivation_methods:
         ground: 地植え
