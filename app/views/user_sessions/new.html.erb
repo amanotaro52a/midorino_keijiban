@@ -16,9 +16,26 @@
           <%= link_to t('.create'), new_user_path, class: "btn btn-secondary" %>
         </div>
       <% end %>
-      <div class='link-wrapper text-center'>
+      <div class='link-wrapper'>
         <%= link_to t('.password_forget'), new_password_reset_path %>
       </div>
+      <style>
+        .button-container {
+          display: flex;
+          flex-direction: row; /* デフォルトは横並び */
+          gap: 10px; /* ボタン間の隙間を設定 */
+        }
+
+        @media (max-width: 576px) { /* スマホ画角 */
+          .button-container {
+            flex-direction: column; /* 縦並びに変更 */
+          }
+
+          .button-container .btn {
+           margin-bottom: 10px; /* ボタンの間隔を開ける */
+          }
+        }
+      </style>
     </div>
   </div>
 </div>
