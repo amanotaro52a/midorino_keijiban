@@ -11,9 +11,4 @@ class UserMailer < ApplicationMailer
     @url = edit_password_reset_url(@user.reset_password_token)
     mail(to: @user.email, subject: t('defaults.password_reset'))
   end
-
-  def welcome_email(user)
-    @user = user
-    mail(to: @user.email, subject: '私の素敵なサイトへようこそ')
-  end  
 end
