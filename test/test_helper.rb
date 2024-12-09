@@ -1,3 +1,18 @@
+# SimpleCovのセットアップ
+require 'simplecov'
+SimpleCov.start 'rails' do
+  add_filter '/bin/'
+  add_filter '/db/'
+  add_filter '/test/'
+  add_filter '/config/'
+end
+
+# Docker環境用にカバレッジ出力先を指定
+SimpleCov.coverage_dir 'tmp/coverage'
+
+puts "SimpleCov started. Coverage report will be generated in tmp/coverage."
+
+# 既存のコード
 ENV["RAILS_ENV"] ||= "test"
 require_relative "../config/environment"
 require "rails/test_help"
