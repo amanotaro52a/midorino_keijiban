@@ -2,7 +2,7 @@ module ApplicationHelper
     def default_meta_tags
     {
       site: '緑の掲示板',
-      title: '育てている植物を観察日記として共有できるサービス',
+      title: '緑の掲示板',
       reverse: true,
       charset: 'utf-8',
       description: 'ご自宅の庭やベランダなどで育てている植物を観察日記として共有しよう。きっとあなたも育ててみたくなるかも。',
