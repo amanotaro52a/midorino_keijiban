@@ -11,7 +11,6 @@ class User < ApplicationRecord
   has_many :diaries, dependent: :destroy
   has_one_attached :avatar
   def deliver_reset_password_instructions!
-    # Sorcery のデフォルトのパスワードリセット処理を呼び出す
     super
     UserMailer.reset_password_email(self).deliver_later
   end
