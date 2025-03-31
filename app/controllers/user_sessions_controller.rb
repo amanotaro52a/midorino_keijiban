@@ -8,8 +8,7 @@ class UserSessionsController < ApplicationController
 
     if @user
       auto_login(@user)
-      redirect_to diaries_path
-      flash[:success] = t('user_sessions.create.success')
+      redirect_to diaries_path, success: t('user_sessions.create.success')
     else
       flash.now[:danger] = t('user_sessions.create.failure')
       render :new, status: :unprocessable_entity
