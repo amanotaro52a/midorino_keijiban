@@ -89,7 +89,7 @@ ja:
       to_login_page: ログインページへ
   errors:
     messages:
-      extension_whitelist_error: "許可されていないファイル形式です。"
+      extension_whitelist_error: 許可されていないファイル形式です。
   password_resets:
     new:
       title:  パスワードリセット申請
@@ -98,6 +98,7 @@ ja:
       title: パスワードリセット
     create:
       success: パスワードリセット手順を送信しました
+      email_send_failed: パスワードリセット手順を送信に失敗しました
     update:
       success: パスワードを変更しました 
   search_form:

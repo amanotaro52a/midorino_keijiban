@@ -5,8 +5,17 @@ class PasswordResetsController < ApplicationController
 
   def create
     @user = User.find_by(email: params[:email])
-    @user&.deliver_reset_password_instructions!
-    redirect_to login_path, success: t('.success')
+    if @user
+      @user.generate_reset_password_token!
+      if UserMailer.reset_password_email(@user).deliver_now
+        redirect_to login_path, success: t('.success')
+      else
+        flash.now[:danger] = t('.email_send_failed')
+        render :new,status: :internal_server_error
+      end
+    else
+      redirect_to login_path, success: t('.success')    
+    end 
   end
 
   def edit

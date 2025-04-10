@@ -1,4 +1,2 @@
 production:
-  SENDGRID_USERNAME: 'apikey'
-  SENDGRID_PASSWORD: <%= ENV["SENDGRID_API_KEY"] %>
-  APP_HOST: 'https://midorino-keijiban.com/'
+  APP_HOST: 'midorino-keijiban.com'
