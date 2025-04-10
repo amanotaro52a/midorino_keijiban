@@ -10,8 +10,4 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: { case_sensitive: false }
   has_many :diaries, dependent: :destroy
   has_one_attached :avatar
-  def deliver_reset_password_instructions!
-    super
-    UserMailer.reset_password_email(self).deliver_later
-  end
 end
