@@ -2,7 +2,7 @@ require 'sendgrid-ruby'
 include SendGrid 
 
 class SendgridUserMailer
-  def self.reset_password_email(user)
+  def reset_password_email(user)
     @user = user
     @url =  Rails.application.routes.url_helpers.edit_password_reset_url(@user.reset_password_token, host: ENV.fetch('MAILER_HOST'))
     from = Email.new(email: 'info@www.midorino-keijiban.com')
