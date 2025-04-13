@@ -12,7 +12,7 @@ class SendgridUserMailer
     html_content = Content.new(type: 'text/html', value: render_html_template)
     text_content = Content.new(type: 'text/plain', value: render_text_template)
 
-    mail = Mail.new
+    mail = SendGrid::Mail.new
     mail.from = from
     mail.subject = subject
 
