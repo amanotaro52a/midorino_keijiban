@@ -7,7 +7,7 @@ class SendgridUserMailer
     @url =  Rails.application.routes.url_helpers.edit_password_reset_url(@user.reset_password_token, host: ENV.fetch('MAILER_HOST'))
     from = Email.new(email: 'info@www.midorino-keijiban.com')
     to = Email.new(email: @user.email)
-    subject = t('defaults.password_reset')
+    subject = I18n.t('defaults.password_reset')
 
     html_content = Content.new(type: 'text/html', value: render_html_template)
     text_content = Content.new(type: 'text/plain', value: render_text_template)
