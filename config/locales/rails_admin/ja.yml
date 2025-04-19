@@ -1,0 +1,82 @@
+ja:
+  admin:
+    table_headers:
+      model_name: モデル名
+      last_created: 作成日
+      records: レコード
+    actions:
+      dashboard:
+        title: ダッシュボード
+        menu: ダッシュボード        
+        breadcrumb: ダッシュボード
+      index:
+        title: 一覧
+        menu: 一覧
+        breadcrumb: 一覧
+        no_records: レコードがありません
+      new:
+        title: 新規作成
+        menu: 新規作成
+      export:
+        link: エクスポート
+        bulk_link: 一括エクスポート
+        breadcrumb: エクスポート
+        title: エクスポート
+        menu: エクスポート
+      bulk_delete:
+        title: 一括削除
+        menu: 一括削除
+        bulk_link: 一括削除
+      show:
+        title: 詳細
+        menu: 詳細
+      edit:
+        title: 編集
+        menu: 編集
+      delete:
+        title: 削除
+        menu: 削除
+      show_in_app:
+        title: アプリで表示
+        menu: アプリで表示
+    Navigation:
+      static_label: 管理画面  
+    misc:
+      navigation: レコード一覧
+      refresh: 検索
+      filter: 絞り込み
+      reset_filters: フィルターをリセット
+      add_filter: フィルターを追加
+      bulk_menu_title: 一括操作
+      show_all: 全て表示
+      show_only: のみ表示
+      items: 件
+      ago: 前
+      selected: 件選択中
+      confirmation: 本当に実行しますか？ 
+      search: 検索
+      confirmation: 確認
+      cancel: キャンセル
+    bulk_menu:
+      title: 一括操作
+    export:
+      select: エクスポートする項目を選択
+      options_for: オプション
+      select_all_fields: 全ての項目を選択
+      fields_from:  "%{name}モデルの項目"
+      fields_from_associated: "%{name}関連モデルの項目"
+      select_format: フォーマットを選択
+      Encoding To: 使用する文字コード
+      confirmation: エクスポートを実行
+      click_to_reverse_selection: クリックで選択を反転
+      csv:
+        encoding_to: 文字コード
+        encoding_to_help: エクスポート時の文字コード指定（例:UTF-8）
+        skip_header: ヘッダー行をスキップ
+        col_sep: 区切り文字
+        col_sep_help: カラム区切り文字の設定方法
+        skip_header_help: 最初の行（ヘッダー）を含めない場合はチェックしてください
+    form:
+      cancel: キャンセル
+    home: 
+      name: ホーム  

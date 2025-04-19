@@ -3,6 +3,7 @@ ja:
     models:
       user: ユーザー
       diary: 日記
+      growth_stage: 成長段階
     attributes:
       user:
         email: メールアドレス
@@ -10,7 +11,19 @@ ja:
         avatar: アバター
         password: パスワード
         password_confirmation: パスワード確認
+        crypted_password: 暗号化パスワード
+        salt: ソルト
+        reset_password_token: パスワードリセットトークン
+        reset_password_token_expires_at: トークン有効期限
+        reset_password_email_sent_at: パスワードリセット送信日時
+        remember_me_token: ログイン保持トークン
+        remember_me_token_expires_at: ログイン保持トークン有効期限
+        access_count_to_reset_password_page: リセットページアクセス回数
+        diaries: 投稿した日記
+        created_at: 登録日時
+        updated_at: 更新日時
       diary:
+        user: ユーザー
         title: タイトル
         summary_content: 概要
         growth_stage_contents: 成長段階
@@ -19,7 +32,17 @@ ja:
         variety_name: 品種名
         cultivation_method: 栽培形態
         cultivation_location: 場所
+        created_at: 登録日時
+        updated_at: 更新日時
+        growth_stages: 成長段階の内容
+      growth_stage:
+        diary: 日記
+        stage_name: 成長段階名
+        description: 説明
+        image: 画像
         growth_stage_contents: 成長段階の内容
+        created_at: 作成日時
+        updated_at: 更新日時          
   buttons:
     destroy: 削除
     add: 追加
