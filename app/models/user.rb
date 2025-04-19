@@ -9,5 +9,4 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 255 }
   validates :email, presence: true, uniqueness: { case_sensitive: false }
   has_many :diaries, dependent: :destroy
-  has_one_attached :avatar
 end

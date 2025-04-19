@@ -54,7 +54,8 @@ gem 'sendgrid-ruby'
 
 gem "aws-sdk-s3", require: false
 gem 'fog-aws'
-
+gem 'rails_admin', '~> 3.0'
+gem 'cancancan'
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
@@ -86,3 +87,4 @@ group :test do
   gem 'rails-controller-testing'
 
 end
+gem "sassc-rails"
