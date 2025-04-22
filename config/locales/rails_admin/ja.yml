@@ -7,7 +7,7 @@ ja:
     actions:
       dashboard:
         title: ダッシュボード
-        menu: ダッシュボード        
+        menu: ダッシュボード     
         breadcrumb: ダッシュボード
       index:
         title: 一覧
@@ -17,6 +17,8 @@ ja:
       new:
         title: 新規作成
         menu: 新規作成
+        breadcrumb: 新規作成
+        link: 新規作成
       export:
         link: エクスポート
         bulk_link: 一括エクスポート
@@ -30,17 +32,22 @@ ja:
       show:
         title: 詳細
         menu: 詳細
+        breadcrumb: 詳細
       edit:
         title: 編集
         menu: 編集
+        breadcrumb: 編集
+        link: 編集
       delete:
         title: 削除
         menu: 削除
+        link: 削除
+        breadcrumb: 削除
       show_in_app:
         title: アプリで表示
         menu: アプリで表示
     Navigation:
-      static_label: 管理画面  
+      static_label: 管理画面
     misc:
       navigation: レコード一覧
       refresh: 検索
@@ -57,6 +64,8 @@ ja:
       search: 検索
       confirmation: 確認
       cancel: キャンセル
+      chose_all: すべて選択
+      clear_all: すべて削除
     bulk_menu:
       title: 一括操作
     export:
@@ -71,12 +80,20 @@ ja:
       click_to_reverse_selection: クリックで選択を反転
       csv:
         encoding_to: 文字コード
-        encoding_to_help: エクスポート時の文字コード指定（例:UTF-8）
+        encoding_to_help: エクスポート時の文字コード指定（例:UTF-8)
         skip_header: ヘッダー行をスキップ
         col_sep: 区切り文字
         col_sep_help: カラム区切り文字の設定方法
         skip_header_help: 最初の行（ヘッダー）を含めない場合はチェックしてください
     form:
       cancel: キャンセル
-    home: 
-      name: ホーム  
+      basic_info: 詳細
+      required: 必須項目
+      optional: 任意項目
+      char_length_up_to: 最大文字
+      save: 保存
+      save_and_add_another: 保存してさらに追加
+      save_and_edit: 保存して編集
+      confirmation: 削除する
+    home:
+      name: ホーム
