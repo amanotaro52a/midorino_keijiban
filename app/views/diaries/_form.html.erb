@@ -13,7 +13,7 @@
 
   <% if @diary.thumbnail_image_url.present? %>
     <div class="mb-auto">
-      <p>現在のサムネイル:</p>
+      <p><%= t("diaries._form.current_thumbnail") %></p>
       <img src="<%= @diary.thumbnail_image_url %>" alt="Thumbnail Image" width="200" />     
     </div>
   <% end %>
@@ -31,12 +31,12 @@
 
     <div>
       <%= f.label :cultivation_method %>
-      <%= f.select :cultivation_method, options_for_select(["地植え", "プランター・鉢植え", "その他"]), { include_blank: "選択してください" }, class: "form-control" %>
+      <%= f.select :cultivation_method, options_for_select(["地植え", "プランター・鉢植え", "その他"]), { include_blank: t('diaries._form.select_prompt') }, class: "form-control" %>
     </div>
 
     <div>
       <%= f.label :cultivation_location %>
-      <%= f.select :cultivation_location, options_for_select(["室内", "庭", "ベランダ", "畑", "その他"]), { include_blank: "選択してください" }, class: "form-control" %>
+      <%= f.select :cultivation_location, options_for_select(["室内", "庭", "ベランダ", "畑", "その他"]), { include_blank: t('diaries._form.select_prompt') }, class: "form-control" %>
     </div>
   </div>
 
@@ -50,7 +50,7 @@
       <div class="mb-auto growth-stage-item">
         <%= growth_stage_form.hidden_field :id %>
         <%= growth_stage_form.label :growth_stage_contents, t('activerecord.attributes.diary.growth_stage_contents') %>
-        <%= growth_stage_form.text_area :growth_stage_contents, class: "form-control growth_stage_content", rows: "4", placeholder: "成長段階を入力" %>
+        <%= growth_stage_form.text_area :growth_stage_contents, class: "form-control growth_stage_content", rows: "4" %>
         <%= growth_stage_form.file_field :image, class: "form-control", accept: 'image/*' %>
         <%= growth_stage_form.hidden_field :_destroy, value: "false", class: "destroy-hidden-field" %>
         <button type="button" class="btn btn-danger remove-growth-stage-btn"><%= t('buttons.destroy') %></button>

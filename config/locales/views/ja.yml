@@ -65,6 +65,8 @@ ja:
       title: 日記作成
     _form:  
       growth_stage_destroy: この成長段階を削除
+      current_thumbnail: 現在のサムネイル
+      select_prompt: 選択してください
     show:
       title: 日記詳細
       plant_name: 植物名
@@ -131,7 +133,7 @@ ja:
       content_placeholder: 使用中に不具合がありましたら入力してください
       submit: 送信
     create:
-      success: お問い合わせフォームを送信しました
+      success: お問い合わせフォームを送信しました 
   contact_mailer:
     contact_mail: 
       contact_information: お問い合わせについて【自動送信】  
