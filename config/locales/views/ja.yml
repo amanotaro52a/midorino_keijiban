@@ -38,6 +38,7 @@ ja:
     bookmark_index: ブックマーク一覧
     profile: プロフィール
     how_to_used: 使い方
+    contact_form: お問い合わせ
   footer:
     terms_of_service: 利用規約
     privacy_policy: プライバシーポリシー
@@ -121,3 +122,17 @@ ja:
         other: その他
     buttons:
       search: 検索
+  contacts:
+    new: 
+      title: お問い合わせ
+      name: お名前
+      email: メールアドレス
+      content: お問い合わせ内容
+      content_placeholder: 使用中に不具合がありましたら入力してください
+      submit: 送信
+    create:
+      success: お問い合わせフォームを送信しました
+  contact_mailer:
+    contact_mail: 
+      contact_information: お問い合わせについて【自動送信】  
+
