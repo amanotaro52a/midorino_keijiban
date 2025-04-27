@@ -1,5 +1,5 @@
 class DiariesController < ApplicationController
-  skip_before_action :require_login, only: %i[index]
+  skip_before_action :require_login, only: %i[index show]
   def index
     @q = Diary.ransack(params[:q])
     @diaries = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
