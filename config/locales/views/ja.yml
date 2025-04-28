@@ -21,6 +21,7 @@ ja:
       updated: "%{item}を更新しました"
       not_updated: "%{item}を更新出来ませんでした"
       deleted: "%{item}を削除しました"
+      diary_not_found: "日記が見つかりませんでした"
       require_login: ログインしてください
   informations:
     how_to_used:

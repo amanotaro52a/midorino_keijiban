@@ -12,7 +12,7 @@ class DiariesController < ApplicationController
   def show
     @diary = Diary.find_by(id: params[:id])
     if @diary.nil?
-      redirect_to diaries_path, alert: "日記が見つかりませんでした"
+      redirect_to diaries_path, alert: t('defaults.flash_message.diary_not_found')
     end
   end
 
@@ -29,7 +29,7 @@ class DiariesController < ApplicationController
   def edit
     @diary = current_user.diaries.find_by(id: params[:id])
     if @diary.nil?
-      redirect_to diaries_path, alert: "日記が見つかりませんでした"
+      redirect_to diaries_path, alert: t('defaults.flash_message.diary_not_found')
     end
   end
 
