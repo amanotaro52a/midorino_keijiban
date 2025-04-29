@@ -36,7 +36,7 @@ class GrowthStageImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   # version :thumb do
-  process resize_to_fit: [500, 500]
+  process resize_to_fit: [ 500, 500 ]
   # end
 
   # Add an allowlist of extensions which are allowed to be uploaded.
@@ -52,12 +52,12 @@ class GrowthStageImageUploader < CarrierWave::Uploader::Base
   # end
   def convert_to_webp
     manipulate! do |img|
-      img.format 'webp'
+      img.format "webp"
       img
     end
   end
-    
+
   def filename
-    super.chomp(File.extname(super)) + '.webp' if original_filename.present?
+    super.chomp(File.extname(super)) + ".webp" if original_filename.present?
   end
 end

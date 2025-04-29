@@ -20,4 +20,3 @@ RSpec.describe GrowthStage, type: :model do
     end
   end
 end
-

@@ -36,15 +36,15 @@ RSpec.describe User, type: :model do
     it 'メールアドレスが大文字小文字の違いだけの場合、無効であること' do
       # まず通常のメールアドレスを持つユーザーを作成
       user1 = create(:user, email: 'testuser@example.com')
-      
+
       # 次に新しいユーザーを作成し、同じメールアドレスを大文字小文字を変えて設定
       user2 = build(:user, email: 'TESTUSER@EXAMPLE.COM')
-    
+
       # user2が無効であることを確認
       expect(user2).to_not be_valid
       expect(user2.errors[:email]).to include("はすでに存在します")
     end
-    
+
     it 'パスワードが3文字未満の場合、無効であること' do
       user.password = '12'
       expect(user).to_not be_valid

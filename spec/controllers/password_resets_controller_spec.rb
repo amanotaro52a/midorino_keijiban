@@ -72,4 +72,3 @@ RSpec.describe PasswordResetsController, type: :controller do
     end
   end
 end
-

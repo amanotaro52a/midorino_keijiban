@@ -11,11 +11,11 @@ class Diary < ApplicationRecord
   validates :variety_name, length: { maximum: 100 }, allow_blank: true
   validates :cultivation_method, length: { maximum: 50 }, allow_blank: true
   validates :cultivation_location, length: { maximum: 50 }, allow_blank: true
-  
+
   def self.ransackable_attributes(auth_object = nil)
-    ["created_at", "id", "summary_content", "thumbnail_image", "title", "updated_at", "user_id", "plant_name", "variety_name", "cultivation_method", "cultivation_location"]
+    [ "created_at", "id", "summary_content", "thumbnail_image", "title", "updated_at", "user_id", "plant_name", "variety_name", "cultivation_method", "cultivation_location" ]
   end
   def self.ransackable_associations(auth_object = nil)
-    ["user"]
+    [ "user" ]
   end
 end

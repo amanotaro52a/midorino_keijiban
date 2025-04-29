@@ -53,7 +53,7 @@ RSpec.configure do |config|
   config.fixture_paths = [
     Rails.root.join('spec/fixtures')
   ]
-  
+
   config.include FactoryBot::Syntax::Methods
   config.include LoginSupport, type: :controller
   config.include ActiveJob::TestHelper, type: :model

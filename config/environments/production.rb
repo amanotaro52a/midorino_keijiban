@@ -3,7 +3,7 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  
+
   # Code is not reloaded between requests.
   config.enable_reloading = false
 
@@ -93,7 +93,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.default_url_options = { host: 'www.midorino-keijiban.com' }
+  config.action_mailer.default_url_options = { host: "www.midorino-keijiban.com" }
   # Enable DNS rebinding protection and other `Host` header attacks.
   # config.hosts = [
   #   "example.com",     # Allow requests from example.com
@@ -103,12 +103,12 @@ Rails.application.configure do
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com',
+    address: "smtp.gmail.com",
     port: 587,
-    user_name: ENV['SMTP_USER_NAME'],
-    password: ENV['SMTP_PASSWORD'],
-    domain: 'www.midorino-keijiban.com',
-    authentication: 'plain',
+    user_name: ENV["SMTP_USER_NAME"],
+    password: ENV["SMTP_PASSWORD"],
+    domain: "www.midorino-keijiban.com",
+    authentication: "plain",
     enable_starttls_auto: true
   }
-end  
+end

@@ -33,7 +33,7 @@ RSpec.describe "Diaries", type: :request do
           user_id: user.id
         } }
       }.to change(Diary, :count).by(1)
-    end    
+    end
   end
 
   describe "PUT /diaries/:id" do
