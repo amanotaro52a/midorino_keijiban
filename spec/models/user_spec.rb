@@ -71,11 +71,12 @@ RSpec.describe User, type: :model do
       expect(mail.to).to include(user.email)
       expect(mail.subject).to eq(I18n.t('defaults.password_reset'))
 
-      decoded_body = if mail.text_part
-                        mail.text_part.body.decoded
-                     else
-                        mail.body.decoded
-                     end
+      decoded_body =
+      if mail.text_part
+        mail.text_part.body.decoded
+      else
+        mail.body.decoded
+      end
       expect(decoded_body).to include(user.reset_password_token)
     end
   end
