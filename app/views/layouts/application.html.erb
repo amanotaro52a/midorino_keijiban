@@ -13,7 +13,9 @@
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload", "href": asset_path("application.css") %>
+    <% unless Rails.env.test? %>
+      <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <% end %>  
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
     <%= display_meta_tags(default_meta_tags) %>
         <!-- Google tag (gtag.js) -->
