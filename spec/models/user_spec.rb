@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let(:user) { create(:user) } # FactoryBotを使ってUserのインスタンスを生成
+  let(:user) { create(:user) }
 
   describe 'バリデーション' do
     it '有効なUserを持つ場合、有効であること' do
@@ -27,20 +27,15 @@ RSpec.describe User, type: :model do
     end
 
     it 'メールアドレスが一意でない場合、無効であること' do
-      create(:user, email: 'test@example.com') # 既存ユーザーを作成
+      create(:user, email: 'test@example.com')
       user.email = 'test@example.com'
       expect(user).to_not be_valid
       expect(user.errors[:email]).to include("はすでに存在します")
     end
 
     it 'メールアドレスが大文字小文字の違いだけの場合、無効であること' do
-      # まず通常のメールアドレスを持つユーザーを作成
       user1 = create(:user, email: 'testuser@example.com')
-
-      # 次に新しいユーザーを作成し、同じメールアドレスを大文字小文字を変えて設定
       user2 = build(:user, email: 'TESTUSER@EXAMPLE.COM')
-
-      # user2が無効であることを確認
       expect(user2).to_not be_valid
       expect(user2.errors[:email]).to include("はすでに存在します")
     end
@@ -60,22 +55,28 @@ RSpec.describe User, type: :model do
   end
 
   describe 'パスワードリセット' do
-    before { ActiveJob::Base.queue_adapter = :test } # テスト用のジョブアダプタを設定
+    before do
+      ActionMailer::Base.deliveries.clear
+    end
 
     it 'パスワードリセットメールが送信されること' do
-      # メール送信をトリガー
-      expect {
-        user.deliver_reset_password_instructions!
-      }.to have_enqueued_job(ActionMailer::MailDeliveryJob).on_queue('default')
-
-      # メールが正しく生成されているかを確認
       perform_enqueued_jobs do
-        expect(ActionMailer::Base.deliveries.size).to eq(1)
-        mail = ActionMailer::Base.deliveries.last
-
-        expect(mail.to).to include(user.email)
-        expect(mail.subject).to eq(I18n.t('defaults.password_reset'))
+        expect {
+          user.deliver_reset_password_instructions!
+        }.to change { ActionMailer::Base.deliveries.count }.by(1)
       end
+
+      mail = ActionMailer::Base.deliveries.last
+
+      expect(mail.to).to include(user.email)
+      expect(mail.subject).to eq(I18n.t('defaults.password_reset'))
+
+      decoded_body = if mail.text_part
+                        mail.text_part.body.decoded
+                     else
+                        mail.body.decoded
+                     end
+      expect(decoded_body).to include(user.reset_password_token)
     end
   end
 end
