@@ -8,6 +8,6 @@ class ApplicationController < ActionController::Base
 
   def not_authenticated
     redirect_to login_path
-    flash[:danger] = t('defaults.flash_message.require_login')
+    flash[:danger] = t("defaults.flash_message.require_login")
   end
 end

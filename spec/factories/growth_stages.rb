@@ -3,7 +3,7 @@ FactoryBot.define do
     stage_name { "Seedling" }
     description { "This is the seedling stage." }
     image do
-      file = Tempfile.new(['sample_image', '.png'])
+      file = Tempfile.new([ 'sample_image', '.png' ])
       file.write("fake image content") # 仮の画像データを書き込む
       file.rewind
       Rack::Test::UploadedFile.new(file.path, 'image/png')

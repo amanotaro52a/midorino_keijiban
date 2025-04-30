@@ -66,7 +66,6 @@
           1,
           1,
           1,
-          null,
           2,
           2,
           null,
@@ -86,7 +85,6 @@
           1,
           1,
           1,
-          1,
           null,
           0,
           0,
@@ -104,14 +102,12 @@
           1,
           1,
           1,
-          1,
           null,
           0,
           0,
           null,
           null,
           null,
-          1,
           1,
           1,
           1,
@@ -160,9 +156,6 @@
           1,
           2,
           2,
-          null,
-          null,
-          2,
           2,
           null,
           null,
@@ -180,7 +173,6 @@
           null,
           2,
           2,
-          1,
           1,
           null,
           1,
@@ -199,7 +191,6 @@
           null,
           1,
           4,
-          2,
           2,
           null,
           2,
@@ -234,7 +225,6 @@
           2,
           1,
           1,
-          1,
           null,
           1,
           1,
@@ -263,7 +253,6 @@
           7,
           4,
           4,
-          4,
           null,
           3,
           3,
@@ -282,14 +271,10 @@
         "lines": [
           1,
           1,
-          null,
-          null,
           1,
           1,
           null,
-          null,
           1,
-          null,
           null,
           1,
           1,
@@ -297,11 +282,9 @@
           1,
           1,
           1,
-          null,
           null,
           1,
           25,
-          null,
           null,
           1,
           15,
@@ -478,8 +461,6 @@
           1,
           1,
           1,
-          1,
-          null,
           6,
           6,
           null,
@@ -489,17 +470,15 @@
       "/myapp/app/mailers/user_mailer.rb": {
         "lines": [
           1,
-          1,
           null,
           null,
           null,
           null,
           null,
           1,
-          6,
-          null,
-          6,
-          6,
+          1,
+          1,
+          1,
           null,
           null
         ]
@@ -576,8 +555,7 @@
           1,
           null,
           1,
-          14,
-          null,
+          4,
           null,
           null,
           null,
@@ -608,6 +586,34 @@
         ],
         "branches": {}
       },
+      "/myapp/app/controllers/contacts_controller.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {}
+      },
       "/myapp/app/controllers/static_pages_controller.rb": {
         "lines": [
           0,
@@ -618,11 +624,27 @@
         ],
         "branches": {}
       },
-      "/myapp/app/decorators/diary_decorator.rb": {
+      "/myapp/app/decorators/contact_decorator.rb": {
         "lines": [
           0,
           0,
           null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0
+        ],
+        "branches": {}
+      },
+      "/myapp/app/decorators/diary_decorator.rb": {
+        "lines": [
+          0,
+          0,
           null,
           null,
           null,
@@ -649,7 +671,6 @@
           null,
           null,
           null,
-          null,
           0
         ],
         "branches": {}
@@ -658,7 +679,6 @@
         "lines": [
           0,
           0,
-          null,
           null,
           null,
           null,
@@ -700,8 +720,66 @@
           0
         ],
         "branches": {}
+      },
+      "/myapp/app/mailers/contact_mailer.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {}
+      },
+      "/myapp/app/models/ability.rb": {
+        "lines": [
+          null,
+          null,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0
+        ],
+        "branches": {}
+      },
+      "/myapp/app/models/contact.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {}
       }
     },
-    "timestamp": 1733714696
+    "timestamp": 1746024422
   }
 }

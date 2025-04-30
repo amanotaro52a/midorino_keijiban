@@ -9,4 +9,8 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 255 }
   validates :email, presence: true, uniqueness: { case_sensitive: false }
   has_many :diaries, dependent: :destroy
+  def deliver_reset_password_instructions!
+    generate_reset_password_token!
+    UserMailer.reset_password_email(self).deliver_later
+  end
 end

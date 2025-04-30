@@ -3,7 +3,7 @@ source "https://rubygems.org"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.2.1"
 group :development, :test do
-  gem 'dotenv-rails'
+  gem "dotenv-rails"
 end
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
@@ -23,14 +23,14 @@ gem "cssbundling-rails"
 gem "jbuilder"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
-gem 'sorcery', '0.16.5'
+gem "sorcery", "0.16.5"
 
-gem 'rails-i18n', '~> 7.0.0'
+gem "rails-i18n", "~> 7.0.0"
 
-gem 'draper', '4.0.2'
+gem "draper", "4.0.2"
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
-gem 'carrierwave', '2.2.2'
+gem "carrierwave", "2.2.2"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
@@ -41,21 +41,21 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
-gem 'faker'
-gem 'meta-tags'
+gem "faker"
+gem "meta-tags"
 
-gem 'kaminari', '1.2.2'
-gem 'bootstrap5-kaminari-views'
+gem "kaminari", "1.2.2"
+gem "bootstrap5-kaminari-views"
 
-gem 'ransack'
+gem "ransack"
 
-gem 'config'
-gem 'sendgrid-ruby'
+gem "config"
+gem "sendgrid-ruby"
 
 gem "aws-sdk-s3", require: false
-gem 'fog-aws'
-gem 'rails_admin', '~> 3.0'
-gem 'cancancan'
+gem "fog-aws"
+gem "rails_admin", "~> 3.0"
+gem "cancancan"
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
@@ -73,18 +73,17 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
-  gem 'letter_opener_web', '~> 3.0'
+  gem "letter_opener_web", "~> 3.0"
 end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "rspec-rails"
-  gem 'shoulda-matchers', '~> 5.0'
+  gem "shoulda-matchers", "~> 5.0"
   gem "selenium-webdriver"
   gem "simplecov", require: false
   gem "factory_bot_rails"
-  gem 'rails-controller-testing'
-
+  gem "rails-controller-testing"
 end
 gem "sassc-rails"

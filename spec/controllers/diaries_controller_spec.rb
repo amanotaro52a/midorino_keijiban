@@ -9,7 +9,7 @@ RSpec.describe DiariesController, type: :controller do
     it 'renders the index template and assigns @diaries' do
       get :index
       expect(response).to render_template(:index)
-      expect(assigns(:diaries)).to eq([diary])
+      expect(assigns(:diaries)).to eq([ diary ])
     end
   end
 
