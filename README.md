@@ -1,5 +1,5 @@
 # プロジェクト名：『緑の掲示板』
-<img width="500" src="ogp.jpg"><br>
+<img width="500" src="app/assets/images/ogp.jpg"><br>
 <br>
 
 # 目次
