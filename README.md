@@ -1,5 +1,5 @@
 # プロジェクト名：『緑の掲示板』
-<img width="500" src="opg.jpg"><br>
+<img width="500" src="ogp.jpg"><br>
 <br>
 
 # 目次
@@ -34,7 +34,7 @@
 
 | 日記検索 / 日記一覧 |
 | :---: | 
-| [[![Image from Gyazo](https://i.gyazo.com/5d6d9da8e88ccd8dfdfcbeddc0089b91.png)](https://gyazo.com/5d6d9da8e88ccd8dfdfcbeddc0089b91)]|
+| [![Image from Gyazo](https://i.gyazo.com/5d6d9da8e88ccd8dfdfcbeddc0089b91.png)](https://gyazo.com/5d6d9da8e88ccd8dfdfcbeddc0089b91)|
 | <p align="left">フリーキーワードから絞り出せる『タイトル』を初め５つのカテゴリーから日記を検索することが可能で、ユーザー登録の有無に関わらずどなたでも利用できます。</p> |
 <br>
 
@@ -61,7 +61,7 @@
 ## 使用技術
 | カテゴリ | 技術内容 |
 | --- | --- | 
-| サーバーサイド | Ruby 3.1.4　Ruby on Rails 7.0.4|
+| サーバーサイド | Ruby 3.1.4 Ruby on Rails 7.0.4|
 | フロントエンド | Ruby on Rails・JavaScript |
 | CSSフレームワーク | Bootstrap |
 | データベースサーバー | PostgreSQL |
@@ -70,8 +70,8 @@
 | バージョン管理ツール | GitHub・Git Flow |
 <br>
 
-##　画面遷移図
-Figma：https://www.figma.com/design/FmEMws8ZvGzCD46H9HXjiW/Untitled?node-id=0-1&node-type=canvas&t=eHw0qZwD4sg8TSJb-0
+## 画面遷移図
+Figma:https://www.figma.com/design/FmEMws8ZvGzCD46H9HXjiW/Untitled?node-id=0-1&node-type=canvas&t=eHw0qZwD4sg8TSJb-0
 <br>
 
 ## ER図
