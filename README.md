@@ -75,5 +75,5 @@ Figma:https://www.figma.com/design/FmEMws8ZvGzCD46H9HXjiW/Untitled?node-id=0-1&n
 <br>
 
 ## ER図
-[![Image from Gyazo](https://i.gyazo.com/569dcd476be32a3e265fdeea1901d677.png)](https://gyazo.com/569dcd476be32a3e265fdeea1901d677)
+[![Image from Gyazo](https://i.gyazo.com/bd1d8450b9e0d32a66ed470e1611e90d.png)](https://gyazo.com/bd1d8450b9e0d32a66ed470e1611e90d)
 <br>
