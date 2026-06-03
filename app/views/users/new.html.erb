@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-10 col-lg-8 mx-auto">
-      <h1 style="color: #006400;"><%= t('.title') %></h1>
+      <h1 class="text-success"><%= t('.title') %></h1>
       <%= form_with model: @user do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
         <div class="mb-3">
