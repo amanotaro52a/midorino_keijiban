@@ -4,14 +4,6 @@
   border-radius: 8px;
 
   .button-container {
-    display: flex;
-    flex-direction: column; // デフォルトは縦並び
-    align-items: center;
-
-    .btn {
-      margin-bottom: 20px; // ボタンの間隔（縦並び）
-    }
-
     @media (min-width: 768px) {
       flex-direction: row; // 横並びに変更
       justify-content: center;
