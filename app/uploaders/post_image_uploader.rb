@@ -1,4 +1,4 @@
-class GrowthStageImageUploader < CarrierWave::Uploader::Base
+class PostImageUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
@@ -24,7 +24,7 @@ class GrowthStageImageUploader < CarrierWave::Uploader::Base
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
   def default_url
-    ActionController::Base.helpers.asset_path("diary_placeholder.png")
+    ActionController::Base.helpers.asset_path("post_placeholder.png")
   end
 
   # Process files as they are uploaded:
