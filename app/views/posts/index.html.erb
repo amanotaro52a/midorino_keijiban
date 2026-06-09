@@ -1,20 +1,20 @@
 <div class="container pt-3">
   <div class="row">
     <div class="col-lg-12 offset-auto mb-3">
-      <%= render 'search_form', q: @q, url: diaries_path %>
+      <%= render 'search_form', q: @q, url: posts_path %>
     </div>
   </div>
 
   <div class="row">
     <div class="col-12">
       <div class="row">
-        <% if @diaries.present? %>
-          <%= render @diaries %>
+        <% if @posts.present? %>
+          <%= render @posts %>
         <% else %>
-          <div class="mb-3"><%= t('diaries.index.no_diaries') %></div>
+          <div class="mb-3"><%= t('posts.index.no_posts') %></div>
         <% end %>
       </div>
-      <%= paginate @diaries, theme: 'bootstrap-5' %>
+      <%= paginate @posts, theme: 'bootstrap-5' %>
     </div>
   </div>
 </div>
