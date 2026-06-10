@@ -20,7 +20,7 @@ RSpec.describe PostsController, type: :controller do
       it 'renders the new template' do
         get :new
         expect(response).to render_template(:new)
-        expect(assigns(:post)).to be_a_new(Posts)
+        expect(assigns(:post)).to be_a_new(Post)
       end
     end
 

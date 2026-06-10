@@ -10,8 +10,11 @@ class Post < ApplicationRecord
   validates :image, presence: true
   validates :plant_name, length: { maximum: 100 }
 
-
   def self.ransackable_attributes(auth_object = nil)
     [ "title", "body", "plant_name" ]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    ["bookmarks", "likes", "user"]
   end
 end

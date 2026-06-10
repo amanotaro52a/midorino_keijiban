@@ -13,7 +13,7 @@
 
   <% if @post.image_url.present? %>
     <div class="mb-auto">
-      <p><%= t("posts._form.current_thumbnail") %></p>
+      <p><%= t("posts._form.current_image") %></p>
       <img src="<%= @post.image_url %>" alt="Image" width="200" />     
     </div>
   <% end %>

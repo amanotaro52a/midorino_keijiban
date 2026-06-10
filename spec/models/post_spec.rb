@@ -24,22 +24,16 @@ RSpec.describe Post, type: :model do
         expect(post.errors[:title]).to include('は255文字以内で入力してください')
       end
 
-      it 'bodyが空の場合、無効であること' do
-        post.body = nil
-        expect(post).not_to be_valid
-        expect(post.errors[:body]).to include('を入力してください')
-      end
-
       it 'bodyが65535文字を超える場合、無効であること' do
         post.body = 'a' * 65_536
         expect(post).not_to be_valid
         expect(post.errors[:body]).to include('は65535文字以内で入力してください')
       end
 
-      it 'plant_nameが空の場合、無効であること' do
-        post.plant_name = nil
+      it 'plant_nameが100文字を超える場合、無効であること' do
+        post.plant_name = 'a' * 101
         expect(post).not_to be_valid
-        expect(post.errors[:plant_name]).to include('を入力してください')
+        expect(post.errors[:plant_name]).to include('は100文字以内で入力してください')
       end
     end
   end

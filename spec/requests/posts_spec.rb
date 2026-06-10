@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Posts", type: :request do
   let(:user) { create(:user) }
-  let(:post) { create(:post, user: user) }
+  let(:my_post) { create(:post, user: user) }
 
   before do
     # ユーザーでログイン
@@ -18,7 +18,7 @@ RSpec.describe "Posts", type: :request do
 
   describe "GET /posts/:id" do
     it "詳細ページが正常に表示される" do
-      get post_path(post)
+      get post_path(my_post)
       expect(response).to have_http_status(:ok)
     end
   end
@@ -37,17 +37,17 @@ RSpec.describe "Posts", type: :request do
   end
 
   describe "PUT /posts/:id" do
-    it "日記が更新される" do
-      put post_path(post), params: { post: { title: "Updated Title" } }
-      expect(post.reload.title).to eq("Updated Title")
-      expect(response).to redirect_to(post_path(post))
+    it "投稿が更新される" do
+      put post_path(my_post), params: { post: { title: "Updated Title" } }
+      expect(my_post.reload.title).to eq("Updated Title")
+      expect(response).to redirect_to(post_path(my_post))
     end
   end
 
   describe "DELETE /posts/:id" do
-    it "日記が削除される" do
-      delete post_path(post)
-      expect(Post.exists?(post.id)).to be_falsey
+    it "投稿が削除される" do
+      delete post_path(my_post)
+      expect(Post.exists?(my_post.id)).to be_falsey
       expect(response).to redirect_to(posts_path)
     end
   end

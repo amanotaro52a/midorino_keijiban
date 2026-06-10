@@ -27,7 +27,7 @@ ja:
         user: ユーザー
         title: タイトル
         body: 説明
-        image: サムネイル
+        image: 画像
         plant_name: 植物名
         created_at: 登録日時
         updated_at: 更新日時
