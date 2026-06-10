@@ -30,7 +30,8 @@ RSpec.describe "Posts", type: :request do
           title: "New Post",
           body: "This is a new post body.",
           plant_name: "Monstera",
-          user_id: user.id
+          user_id: user.id,
+          image: fixture_file_upload("spec/fixtures/file/testimage.jpg", "image/jpeg")
         } }
       }.to change(Post, :count).by(1)
     end
