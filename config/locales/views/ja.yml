@@ -21,7 +21,7 @@ ja:
       updated: "%{item}を更新しました"
       not_updated: "%{item}を更新出来ませんでした"
       deleted: "%{item}を削除しました"
-      diary_not_found: "日記が見つかりませんでした"
+      post_not_found: "投稿が見つかりませんでした"
       require_login: ログインしてください
   informations:
     how_to_used:
@@ -33,9 +33,9 @@ ja:
   header:
     login: ログイン
     logout: ログアウト
-    diary: 日記
-    diary_index: 日記一覧
-    create_diary: 日記作成
+    post: 投稿
+    post_index: 投稿一覧
+    create_post: 新規投稿
     bookmark_index: ブックマーク一覧
     profile: プロフィール
     how_to_used: 使い方
@@ -61,30 +61,24 @@ ja:
     create:
       success: 会員登録が完了しました
       failure: 会員登録に失敗しました
-  diaries:
+  posts:
     new:
-      title: 日記作成
+      title: 新規投稿
     _form:  
       growth_stage_destroy: この成長段階を削除
       current_thumbnail: 現在のサムネイル
       select_prompt: 選択してください
     show:
-      title: 日記詳細
+      title: 投稿詳細
       plant_name: 植物名
-      variety_name: 品種名
-      cultivation_method: 栽培方法
-      cultivation_location: 場所
-      not_registered: 未登録
     index:
       plant_name: 植物名
       variety_name: 品種名
-      cultivation_method: 栽培方法
-      cultivation_location: 場所
-      no_diaries: 日記がありません
-      title: 日記一覧
+      no_posts: 投稿がありません
+      title: 投稿一覧
       not_registered: 未登録
     edit:
-      title: 日記編集
+      title: 投稿編集
   profiles:
     show:
       title: プロフィール
@@ -108,21 +102,7 @@ ja:
   search_form:
     placeholders:
       plant_name: 植物名
-      variety_name: 品種名
-      cultivation_method: 栽培形態
-      cultivation_location: 場所
       free_keyword: タイトル
-    options:
-      cultivation_methods:
-        ground: 地植え
-        planter: プランター・鉢植え
-        other: その他
-      cultivation_locations:
-        field: 畑
-        garden: 庭
-        balcony: ベランダ
-        indoor: 室内
-        other: その他
     buttons:
       search: 検索
   contacts:
