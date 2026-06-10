@@ -15,6 +15,6 @@ class Post < ApplicationRecord
   end
 
   def self.ransackable_associations(auth_object = nil)
-    ["bookmarks", "likes", "user"]
+    [ "bookmarks", "likes", "user" ]
   end
 end
