@@ -29,7 +29,7 @@ RSpec.describe User, type: :model do
   end
 
   describe "associations" do
-    it { should have_many(:diaries).dependent(:destroy) }
+    it { should have_many(:posts).dependent(:destroy) }
   end
 
   describe "#deliver_reset_password_instructions!" do

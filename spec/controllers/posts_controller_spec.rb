@@ -1,15 +1,15 @@
 require 'rails_helper'
 
-RSpec.describe DiariesController, type: :controller do
+RSpec.describe PostsController, type: :controller do
   let(:user) { create(:user) }
   let(:other_user) { create(:user) }
-  let!(:diary) { create(:diary, user: user) }
+  let!(:post) { create(:post, user: user) }
 
   describe 'GET #index' do
-    it 'renders the index template and assigns @diaries' do
+    it 'renders the index template and assigns @posts' do
       get :index
       expect(response).to render_template(:index)
-      expect(assigns(:diaries)).to eq([ diary ])
+      expect(assigns(:posts)).to eq([ post ])
     end
   end
 
@@ -20,7 +20,7 @@ RSpec.describe DiariesController, type: :controller do
       it 'renders the new template' do
         get :new
         expect(response).to render_template(:new)
-        expect(assigns(:diary)).to be_a_new(Diary)
+        expect(assigns(:post)).to be_a_new(Post)
       end
     end
 

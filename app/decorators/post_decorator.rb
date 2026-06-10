@@ -1,4 +1,4 @@
-class DiaryDecorator < Draper::Decorator
+class PostDecorator < Draper::Decorator
   delegate_all
 
   # Define presentation-specific methods here. Helpers are accessed through

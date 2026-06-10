@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "static_pages#top"
   resources :users, only: %i[new create]
-  resources :diaries, only: %i[index show new create edit destroy update]
+  resources :posts, only: %i[index show new create edit destroy update]
   resource :profile, only: %i[show edit update]
   resources :password_resets, only: %i[new create edit update]
   resources :contacts, only: %i[new create]

@@ -1,0 +1,14 @@
+<%= search_form_for q, url: url, method: :get, html: { class: 'row g-2 align-items-center' } do |f| %>
+
+  <div class=" col-sm-6 col-md-4 col-lg-auto">
+    <%= f.search_field :title_or_body_cont, class: 'form-control', placeholder: t('search_form.placeholders.free_keyword') %>
+  </div>
+
+  <div class="col-sm-6 col-md-4 col-lg-auto">
+    <%= f.search_field :plant_name_cont, class: 'form-control', placeholder: t('search_form.placeholders.plant_name'), id: 'plant_name_search' %>
+  </div>
+
+  <div class="col-auto">
+    <%= f.submit t('search_form.buttons.search'), class: 'btn btn-success' %>
+  </div>
+<% end %>

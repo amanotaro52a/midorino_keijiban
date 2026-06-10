@@ -1,0 +1,40 @@
+<%= form_with model: @post do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <div class="mb-auto">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="mb-auto">
+    <%= f.label :image %>
+    <%= f.file_field :image, class: "form-control", accept: 'image/*' %>
+  </div>
+
+  <% if @post.image_url.present? %>
+    <div class="mb-auto">
+      <p><%= t("posts._form.current_image") %></p>
+      <img src="<%= @post.image_url %>" alt="Image" width="200" />     
+    </div>
+  <% end %>
+  
+  <div class="mb-auto d-flex flex-wrap gap-2">
+    <div>
+      <%= f.label :plant_name %>
+      <%= f.text_field :plant_name, class: "form-control", placeholder: "カタカナで入力" %>
+    </div>
+
+  </div>
+
+  <div class="mb-auto">
+    <%= f.label :body %>
+    <%= f.text_area :body, class: "form-control", rows: "10" %>
+  </div>
+
+
+
+  <button type="button" class="btn btn-secondary" id="add-growth-stage-content"><%= t('buttons.add') %></button>
+  <%= f.submit t('buttons.save'), class: "btn btn-success" %>
+<% end %>
+
+
