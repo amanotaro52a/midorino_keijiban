@@ -1,23 +1,11 @@
 <%= search_form_for q, url: url, method: :get, html: { class: 'row g-2 align-items-center' } do |f| %>
 
   <div class=" col-sm-6 col-md-4 col-lg-auto">
-    <%= f.search_field :title_or_summary_content_cont, class: 'form-control', placeholder: t('search_form.placeholders.free_keyword') %>
+    <%= f.search_field :title_or_body_cont, class: 'form-control', placeholder: t('search_form.placeholders.free_keyword') %>
   </div>
 
   <div class="col-sm-6 col-md-4 col-lg-auto">
     <%= f.search_field :plant_name_cont, class: 'form-control', placeholder: t('search_form.placeholders.plant_name'), id: 'plant_name_search' %>
-  </div>
-
-  <div class="col-sm-6 col-md-4 col-lg-auto">
-    <%= f.search_field :variety_name_cont, class: 'form-control', placeholder: t('search_form.placeholders.variety_name') %>
-  </div>
-
-  <div class="col-sm-6 col-md-4 col-lg-auto">
-    <%= f.select :cultivation_method_eq, options_for_select(["地植え", "プランター・鉢植え", "その他"]), { include_blank: t('search_form.placeholders.cultivation_method') }, class: 'form-select' %>
-  </div>
-
-  <div class="col-sm-6 col-md-4 col-lg-auto">
-    <%= f.select :cultivation_location_eq, options_for_select(["畑", "庭", "ベランダ", "室内", "その他"]), { include_blank: t('search_form.placeholders.cultivation_location') }, class: 'form-select' %>
   </div>
 
   <div class="col-auto">
