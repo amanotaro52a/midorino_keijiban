@@ -13,10 +13,10 @@ RSpec.describe UserSessionsController, type: :controller do
     let(:user) { create(:user, password: 'password') }
 
     context 'when login is successful' do
-      it 'logs in the user and redirects to posts path' do
+      it 'logs in the user and redirects to root path' do
         post :create, params: { email: user.email, password: 'password' }
         expect(controller.current_user).to eq(user)
-        expect(response).to redirect_to(posts_path)
+        expect(response).to redirect_to(root_path)
         expect(flash[:success]).to eq(I18n.t('user_sessions.create.success'))
       end
     end
