@@ -1,32 +1,33 @@
-<header>
+<header class="border-bottom border-success sticky-top">
   <nav class='navbar navbar-expand-lg navigation navbar-light bg-white'>
     <%= link_to '/', class: 'navbar-brand' do %>
       <%= image_tag 'midorinoheya_logo.png', alt: 'みどりのへや', class: 'logo' %>
     <% end %>
-    <button class='navbar-toggler' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent'
+
+    <%# ハンバーガーボタン（lg未満で表示） %>
+    <button class='navbar-toggler border-0' type='button' data-bs-toggle='dropdown'
       aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
       <span class='navbar-toggler-icon'></span>
     </button>
 
-    <div class='collapse navbar-collapse' id='navbarSupportedContent'>
-      <ul class='navbar-nav ms-auto main-nav align-items-center'>
-        <li class='nav-item'>
-          <%= link_to t('header.contact_form'), new_contact_path, class: 'nav-link' %>
-        </li>
-        
-        <li class='nav-item'>
-          <%= link_to t('header.how_to_used'),informations_how_to_used_path, class: 'nav-link' %>
+    <%# モバイル用ドロップダウンメニュー %>
+    <div class='dropdown-menu dropdown-menu-end'>
+      <div class='dropdown-divider'></div>
+      <div class='dropdown-item'><%= current_user.decorate.full_name %></div>
+      <div class='dropdown-divider'></div>
+      <%= link_to t('header.create_post'), new_post_path, class: 'dropdown-item' %>
+      <%= link_to t('header.profile'), profile_path, class: 'dropdown-item' %>
+      <%= link_to t('header.logout'), logout_path, class: 'dropdown-item', data: { turbo_method: :delete } %>
+    </div>
+
+    <%# デスクトップ用（lg以上で表示） %>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto main-nav align-items-center">
+        <li class="nav-item mx-2">
+          <%= link_to t('header.create_post'), new_post_path, class: "btn btn-outline-success btn-lg fw-bold px-4 fs-6" %>
         </li>
 
-        <li class='nav-item'>
-          <%= link_to t('header.create_post'), new_post_path, class: 'nav-link' %>
-        </li>
-
-        <li class='nav-item'>
-          <%= link_to t('header.post_index'), posts_path, class: 'nav-link' %>
-        </li>
-
-        <li class='nav-item dropdown dropdown-slide'>
+        <li class='nav-item dropdown dropdown-slide mx-2'>
           <%= link_to '#', class: 'nav-link', data: { bs_toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' }, id: 'header-profile' do %>
             <%= image_tag current_user.avatar_url, class: 'rounded-circle mr15', width: '40', height: '40' %>
           <% end %>
