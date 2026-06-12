@@ -1,11 +1,17 @@
 .top-wrapper {
   background-image: url('top_image.jpg');
-  height: calc(100vh - 134px);
+  height: calc(65vh - 134px);
   background-position: center;
-  h1, h2 {
-    color: white;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  // タブレット版
+  @media (max-width: 768px) {
+    height: calc(50vh - 80px);
+  }
+
+  // モバイル版
+  @media (max-width: 576px) {
+    height: calc(40vh - 60px);
   }
 }
-
-
-
