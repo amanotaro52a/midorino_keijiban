@@ -35,6 +35,7 @@ ja:
     logout: ログアウト
     post: 投稿
     post_index: 投稿一覧
+    create_user: 新規登録
     create_post: 新規投稿
     bookmark_index: ブックマーク一覧
     profile: プロフィール
@@ -47,7 +48,7 @@ ja:
     new:
       title: ログイン
       login: ログイン
-      create: 新規会員登録はこちら
+      create: 新規登録
       password_forget: パスワードをお忘れの方はこちら
     create:
       success: ログインしました

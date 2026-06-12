@@ -1,30 +1,30 @@
-<header>
-  <nav class='navbar navbar-expand-lg navigation navbar-dark bg-success'>
-
-    <%= link_to root_path, class: "navbar-brand" do %>
-        <h1>緑の掲示板</h1>
+<header class="border-bottom border-success sticky-top">
+  <nav class='navbar navbar-expand-lg navigation navbar-light bg-white'>
+    <%= link_to '/', class: 'navbar-brand' do %>
+      <%= image_tag 'midorinoheya_logo.png', alt: 'みどりのへや', class: 'logo' %>
     <% end %>
 
-    <button class='navbar-toggler' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
-      <span class="navbar-toggler-icon"></span>
+    <%# ハンバーガーボタン %>
+    <button class='navbar-toggler border-0' type='button' data-bs-toggle='dropdown' data-bs-target='#navbarSupportedContent'
+      aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
+      <span class='navbar-toggler-icon'></span>
     </button>
 
+    <%# ドロップダウンメニュー %>
+    <div class='dropdown-menu dropdown-menu-end'>
+      <%= link_to t('header.login'), login_path, class: 'dropdown-item' %>
+      <div class='dropdown-divider'></div>
+      <%= link_to t('header.create_user'), new_user_path, class: 'dropdown-item' %>
+    </div>
+
+    <%# デスクトップ用（lg以上で表示） %>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto main-nav align-items-center">
-        <li class='nav-item'>
-          <%= link_to t('header.contact_form'), new_contact_path, class: 'nav-link' %>
+        <li class="nav-item mx-2">
+          <%= link_to t('header.login'), login_path, class: "btn btn-success btn-lg fw-bold text-white px-4 fs-6" %>
         </li>
-
-        <li class="nav-item">
-          <%= link_to t('header.how_to_used'), informations_how_to_used_path, class: "nav-link"%>
-        </li>
-
-        <li class='nav-item'>
-          <%= link_to t('header.post_index'), posts_path, class: 'nav-link' %>
-        </li>
-
-        <li class="nav-item">
-          <%= link_to t('header.login'), login_path, class: "nav-link" %>
+        <li class="nav-item mx-2">
+          <%= link_to t('header.create_user'), new_user_path, class: "btn btn-outline-success btn-lg fw-bold px-4 fs-6" %>
         </li>
       </ul>
     </div>
