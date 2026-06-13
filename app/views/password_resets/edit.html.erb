@@ -1,23 +1,25 @@
 <% content_for(:title, t('.title')) %>
-<div class="container">
-  <div class="row">
-    <div class="col-md-10 col-lg-8 mx-auto">
-      <h1 class="text-success"><%= t('.title') %></h1> 
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+  <div class="card shadow-sm rounded-4 text-success-emphasis" style="width: 100%; max-width: 500px;">
+    <div class="card-body p-5">
+      <h1 class="card-title h4 mb-4 fw-bold"><%= t('.title') %></h1>
       <%= form_with model: @user, url: password_reset_path(@token), method: :patch do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
+        <%= render 'shared/error_messages', object: f.object %>
         <div class="mb-3">
           <%= f.label :email, class: "form-label" %>
-          <%= @user.email %>
+          <p class="form-control-plaintext"><%= @user.email %></p>
         </div>
         <div class="mb-3">
           <%= f.label :password, class: "form-label" %>
           <%= f.password_field :password, class: "form-control" %>
         </div>
-        <div class="mb-3">
+        <div class="mb-4">
           <%= f.label :password_confirmation, class: "form-label" %>
           <%= f.password_field :password_confirmation, class: "form-control" %>
         </div>
-        <%= f.submit class: "btn btn-success" %>
+        <div class="d-grid">
+          <%= f.submit class: "btn btn-success w-100" %>
+        </div>
       <% end %>
     </div>
   </div>
