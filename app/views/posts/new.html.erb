@@ -1,8 +1,14 @@
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 offset-lg-2">
-      <h1 class="text-success"><%= t('.title') %></h1>
-      <%= render 'form', post: @post %>
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8 text-success-emphasis">
+      <h1 class="fw-bold mb-4"><%= t('.title') %></h1>
+
+      <div class="card shadow-sm rounded-4">
+        <div class="card-body p-4">
+          <%= render 'form', post: @post %>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
