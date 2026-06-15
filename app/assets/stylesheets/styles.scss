@@ -53,3 +53,48 @@
     max-height: 80%; /* 画像のサイズを調整 */
   }
 }
+
+// ─── Image Picker ───────────────────────────────────────
+
+.image-picker-zone {
+  border: 2px dashed #ced4da;
+  border-radius: 0.75rem;
+  background-color: #f8f9fa;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+
+  &:hover,
+  &:focus {
+    border-color: #0d6efd;
+    background-color: #e8f0fe;
+    outline: none;
+  }
+
+  &.is-filled {
+    border-style: solid;
+    border-color: #ced4da;
+  }
+}
+
+.picker-empty-state {
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+}
+
+.picker-current-wrap,
+.picker-new-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1rem 1rem 1.5rem; // 左側を広めに確保
+}
+
+.picker-thumb {
+  width: 80px;        // 100px → 80px に縮小
+  height: 80px;
+  object-fit: cover;
+  border: 1px solid #dee2e6;
+  border-radius: 0.5rem;
+  flex-shrink: 0;
+  display: block;     // インライン要素による余白を排除
+}

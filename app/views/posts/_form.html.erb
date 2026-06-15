@@ -1,16 +1,61 @@
 <%= form_with model: @post do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
-  <% if @post.image_url.present? %>
-    <div class="mb-3">
-      <p><%= t("posts._form.current_image") %></p>
-      <img src="<%= @post.image_url %>" alt="Image" class="img-fluid rounded-3" style="max-width: 200px;" />
-    </div>
-  <% end %>
-
   <div class="mb-3">
-    <%= f.label :image, class: "form-label" %>
-    <%= f.file_field :image, class: "form-control", accept: 'image/*' %>
+  <%= f.label :image, class: "form-label" %>
+
+  <div id="imagePickerZone"
+       class="image-picker-zone"
+       role="button"
+       tabindex="0"
+       aria-label="クリックまたはドラッグで画像を選択">
+
+    <%# 新規投稿 or 既存画像なし：空のドロップゾーン %>
+    <div id="pickerEmpty" class="picker-empty-state" style="<%= 'display:none;' if @post.image_url.present? %>">
+      <i class="bi bi-image fs-1 text-secondary d-block mb-2" aria-hidden="true"></i>
+      <p class="mb-1 fw-medium">クリックして画像を選択</p>
+      <p class="text-secondary small mb-0">またはここにドラッグ＆ドロップ</p>
+    </div>
+
+    <%# 編集時：既存画像サムネイル %>
+    <% if @post.image_url.present? %>
+      <div id="pickerCurrent" class="picker-current-wrap">
+        <img src="<%= @post.image_url %>"
+             alt="現在の画像"
+             class="picker-thumb rounded-3">
+        <div>
+          <p class="text-secondary small mb-2">現在の画像</p>
+          <button type="button" class="btn btn-sm btn-outline-secondary picker-change-btn">
+            <i class="bi bi-arrow-repeat me-1" aria-hidden="true"></i>変更する
+          </button>
+        </div>
+      </div>
+    <% end %>
+
+    <%# 新しい画像のプレビュー（JS で表示） %>
+    <div id="pickerNewPreview" class="picker-new-wrap" style="display:none;">
+      <img id="pickerNewThumb" src="" alt="新しい画像プレビュー" class="picker-thumb rounded-3">
+      <div>
+        <% if @post.image_url.present? %>
+          <span class="badge text-bg-info mb-1">新しい画像</span>
+        <% end %>
+        <p id="pickerNewName" class="small fw-medium mb-0"></p>
+        <p id="pickerNewSize" class="small text-secondary mb-2"></p>
+        <button type="button" id="pickerClearBtn" class="btn btn-sm btn-outline-danger">
+          <i class="bi bi-x me-1" aria-hidden="true"></i><span id="pickerClearLabel"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-text">JPEG・PNG・WebP・GIF ／ 10MB以内</div>
+
+  <%# 非表示の実際の file input %>
+  <%= f.file_field :image,
+        id: "imageFileInput",
+        class: "d-none",
+        accept: "image/*",
+        data: { has_current: @post.image_url.present? } %>
   </div>
 
   <div class="mb-3">

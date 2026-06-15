@@ -23,9 +23,9 @@ class PostImageUploader < CarrierWave::Uploader::Base
   #
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
-  def default_url
-    ActionController::Base.helpers.asset_path("post_placeholder.png")
-  end
+  # def default_url
+  #  ActionController::Base.helpers.asset_path("post_placeholder.png")
+  # end
 
   # Process files as they are uploaded:
   # process scale: [200, 300]
