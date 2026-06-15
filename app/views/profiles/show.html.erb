@@ -1,22 +1,35 @@
-<div class="container pt-3">
-  <div class="row">
-    <div class="col-md-10 offset-md-1">
-      <h1 class="text-success"><%= t('.title') %></h1>
-      <table class="table">
-        <tr>
-          <th scope="row"><%= User.human_attribute_name(:email) %></th>
-          <td><%= current_user.email %></td>
-        </tr>
-        <tr>
-          <th scope="row"><%= User.human_attribute_name(:name) %></th>
-          <td><%= current_user.decorate.name %></td>
-        </tr>
-        <tr>
-          <th scope="row"><%= User.human_attribute_name(:avatar) %></th>
-          <td><%= image_tag current_user.avatar_url, class: 'rounded-circle', size: '50x50' %></td>
-        </tr>
-      </table>
-      <%= link_to t('defaults.edit'), edit_profile_path, class: 'btn btn-success float-right' %>
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8 text-success-emphasis">
+      <h1 class="fw-bold mb-4"><%= t('.title') %></h1>
+
+      <div class="card shadow-sm rounded-4">
+        <div class="card-body p-4">
+          <div class="d-flex align-items-center mb-4">
+            <%= image_tag current_user.avatar_url, class: "rounded-circle me-3", size: "80x80" %>
+            <div>
+              <h5 class="fw-bold mb-0"><%= current_user.decorate.name %></h5>
+              <p class="text-muted small mb-0"><%= current_user.email %></p>
+            </div>
+          </div>
+
+          <table class="table table-borderless">
+            <tr>
+              <th scope="row" class="text-muted" style="width: 30%;"><%= User.human_attribute_name(:email) %></th>
+              <td><%= current_user.email %></td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-muted"><%= User.human_attribute_name(:name) %></th>
+              <td><%= current_user.decorate.name %></td>
+            </tr>
+          </table>
+
+          <div class="d-flex justify-content-end mt-3">
+            <%= link_to t('defaults.edit'), edit_profile_path, class: "btn btn-success" %>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
