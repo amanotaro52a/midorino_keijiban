@@ -72,6 +72,7 @@ ja:
     show:
       title: 投稿詳細
       plant_name: 植物名
+      like: "いいね"
     index:
       plant_name: 植物名
       variety_name: 品種名

@@ -21,11 +21,32 @@
               <div class="mb-4"><%= simple_format(@post.body) %></div>
 
               <div class="d-flex justify-content-end gap-2 mt-auto flex-wrap">
-                <%= link_to edit_post_path(@post), id: "button-edit-#{@post.id}", class: "btn btn-success" do %>
-                  <i class="bi bi-pencil-fill"></i> <%= t('defaults.edit') %>
+                <%# いいねボタン（自分の投稿以外に表示） %>
+                <% if current_user != @post.user %>
+                  <% if current_user.likes.exists?(post: @post) %>
+                    <%= button_to post_like_path(@post), method: :delete,
+                        class: "btn btn-danger",
+                        id: "button-unlike-#{@post.id}" do %>
+                      <i class="bi bi-heart-fill"></i> <%= @post.likes_count %> <%= t('.like') %>
+                    <% end %>
+                  <% else %>
+                    <%= button_to post_like_path(@post), method: :post,
+                        class: "btn btn-outline-danger",
+                        id: "button-like-#{@post.id}" do %>
+                      <i class="bi bi-heart"></i> <%= @post.likes_count %> <%= t('.like') %>
+                    <% end %>
+                  <% end %>
                 <% end %>
-                <%= link_to post_path(@post), id: "button-delete-#{@post.id}", class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') } do %>
-                  <i class="bi bi-trash-fill"></i> <%= t('defaults.delete') %>
+
+                <%# 編集・削除ボタン（自分の投稿にのみ表示） %>
+                <% if current_user == @post.user %>
+                  <%= link_to edit_post_path(@post), id: "button-edit-#{@post.id}", class: "btn btn-success" do %>
+                    <i class="bi bi-pencil-fill"></i> <%= t('defaults.edit') %>
+                  <% end %>
+                  <%= link_to post_path(@post), id: "button-delete-#{@post.id}", class: "btn btn-danger",
+                    data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') } do %>
+                    <i class="bi bi-trash-fill"></i> <%= t('defaults.delete') %>
+                  <% end %>
                 <% end %>
               </div>
             </div>
