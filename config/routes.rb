@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :posts, only: %i[index show new create edit destroy update] do
     resource :like, only: [ :create, :destroy ]
   end
+  resources :bookmarks, only: %i[create destroy]
   resource :profile, only: %i[show edit update]
   resources :password_resets, only: %i[new create edit update]
   resources :contacts, only: %i[new create]

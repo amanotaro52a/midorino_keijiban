@@ -29,7 +29,18 @@
           </div>
         </div>
       </div>
-
+      <p>お気に入り一覧</p>
+      <div class="col-12">
+        <div class="row">
+          <% if @bookmark_posts.present? %>
+            <%= render @posts %>
+          <% else %>
+            <div class="col">
+              <div class="mb-3">投稿はまだありません</div>           
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
