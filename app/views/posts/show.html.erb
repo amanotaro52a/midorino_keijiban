@@ -21,7 +21,8 @@
               <div class="mb-4"><%= simple_format(@post.body) %></div>
 
               <div class="d-flex justify-content-end gap-2 mt-auto flex-wrap">
-                <%# いいねボタン（自分の投稿以外に表示） %>
+
+                <%# 自分の投稿以外に表示 %>
                 <% if current_user != @post.user %>
                   <% if current_user.likes.exists?(post: @post) %>
                     <%= button_to post_like_path(@post), method: :delete,
@@ -36,23 +37,23 @@
                       <i class="bi bi-heart"></i> <%= @post.likes_count %> <%= t('.like') %>
                     <% end %>
                   <% end %>
-                <% end %>
-
-                <% if current_user.bookmark?(@post) %>
-                  <%= button_to bookmark_path(current_user.bookmarks.find_by(post: @post)),
+                  <% if current_user.bookmark?(@post) %>
+                    <%= button_to bookmark_path(current_user.bookmarks.find_by(post: @post)),
                         method: :delete,
                         class: "btn btn-warning",
                         id: "button-unbookmark-#{@post.id}" do %>
-                    <i class="bi bi-bookmark-fill"></i> 保存済み
-                  <% end %>
-                <% else %>
-                  <%= button_to bookmarks_path(post_id: @post.id),
+                      <i class="bi bi-bookmark-fill"></i> 保存済み
+                    <% end %>
+                  <% else %>
+                    <%= button_to bookmarks_path(post_id: @post.id),
                         method: :post,
                         class: "btn btn-outline-warning",
                         id: "button-bookmark-#{@post.id}" do %>
-                    <i class="bi bi-bookmark"></i> 保存する
+                      <i class="bi bi-bookmark"></i> 保存する
+                    <% end %>
                   <% end %>
                 <% end %>
+
                 <%# 編集・削除ボタン（自分の投稿にのみ表示） %>
                 <% if current_user == @post.user %>
                   <%= link_to edit_post_path(@post), id: "button-edit-#{@post.id}", class: "btn btn-success" do %>
