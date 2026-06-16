@@ -29,7 +29,20 @@
           </div>
         </div>
       </div>
-
+      <h2 class= "text-center fs-4 fw-semibold flex-shrink-0 mb-5">
+        お気に入り一覧
+      </h2>
+      <div class="col-12">
+        <div class="row">
+          <% if @bookmark_posts.present? %>
+            <%= render @bookmark_posts %>
+          <% else %>
+            <div class="col">
+              <div class="mb-3">お気に入り登録はまだありません</div>           
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

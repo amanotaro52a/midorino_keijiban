@@ -12,7 +12,9 @@ class ProfilesController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @bookmark_posts = current_user.bookmark_posts.includes(:user).order(created_at: :desc)
+  end
 
   private
 

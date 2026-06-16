@@ -14,10 +14,14 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "static_pages#top"
   resources :users, only: %i[new create]
-  resources :posts, only: %i[index show new create edit destroy update]
+  resources :posts, only: %i[index show new create edit destroy update] do
+    resource :like, only: [ :create, :destroy ]
+  end
+  resources :bookmarks, only: %i[create destroy]
   resource :profile, only: %i[show edit update]
   resources :password_resets, only: %i[new create edit update]
   resources :contacts, only: %i[new create]
+
 
   get "terms_of_service", to: "informations#terms_of_service", as: :informations_terms_of_service
   get "privacy_policy", to: "informations#privacy_policy", as: :informations_privacy_policy
