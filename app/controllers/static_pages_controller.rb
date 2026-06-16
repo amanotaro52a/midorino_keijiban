@@ -3,6 +3,6 @@ class StaticPagesController < ApplicationController
 
   def top
     @q = Post.ransack(params[:q])
-    @works = @q.result(distinct: true)
+    @posts = @q.result(distinct: true)
   end
 end
