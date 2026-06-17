@@ -5,6 +5,19 @@ class PostsController < ApplicationController
     @posts = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
   end
 
+  def plant_name_autocomplete
+    search = Post.ransack(plant_name_cont: params[:q])
+
+    plant_names = search.result
+                         .where.not(plant_name: [ nil, "" ])
+                         .distinct
+                         .order(:plant_name)
+                         .limit(10)
+                         .pluck(:plant_name)
+
+    render partial: "posts/plant_name_autocomplete", locals: { plant_names: plant_names }
+  end
+
   def new
     @post = Post.new
   end
