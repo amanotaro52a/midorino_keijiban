@@ -4,8 +4,21 @@
     <%= f.search_field :title_or_body_cont, class: 'form-control', placeholder: t('search_form.placeholders.free_keyword') %>
   </div>
 
-  <div class="col-sm-6 col-md-4 col-lg-auto">
-    <%= f.search_field :plant_name_cont, class: 'form-control', placeholder: t('search_form.placeholders.plant_name'), id: 'plant_name_search' %>
+  <div class="col-sm-6 col-md-4 col-lg-auto position-relative"
+       data-controller="autocomplete"
+       role="combobox"
+       data-autocomplete-url-value="<%= plant_name_autocomplete_posts_path %>"
+       data-autocomplete-min-length-value="1">
+    <%= f.search_field :plant_name_cont,
+          class: 'form-control',
+          placeholder: t('search_form.placeholders.plant_name'),
+          id: 'plant_name_search',
+          autocomplete: 'off',
+          data: { autocomplete_target: 'input' } %>
+    <input type="hidden" data-autocomplete-target="hidden">      
+    <ul data-autocomplete-target="results"
+        class="list-group position-absolute w-100 shadow-sm"
+        style="z-index: 1050; top: 100%;"></ul>
   </div>
 
   <div class="col-auto">

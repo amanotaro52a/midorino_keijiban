@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   root "static_pages#top"
   resources :users, only: %i[new create]
   resources :posts, only: %i[index show new create edit destroy update] do
+    get :plant_name_autocomplete, on: :collection
     resource :like, only: [ :create, :destroy ]
   end
   resources :bookmarks, only: %i[create destroy]
