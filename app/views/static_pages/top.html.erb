@@ -34,18 +34,17 @@
         </div>
       <% end %>    
     </div>
-    <div class="row">  
-      <div class="col-12">    
-        <div class="row">
-          <% if @posts.present? %>
-            <%= render @posts %>
-          <% else %>
-            <div class="col">
-              <div class="mb-3">投稿はまだありません</div>
-            </div>
-          <% end %>
+
+    <% if @posts.present? %>
+      <div class="row" data-masonry='{"percentPosition": true }'>
+        <%= render @posts %>
+      </div>      
+    <% else %>
+      <div class="row">
+        <div class="col">
+          <div class="mb-3">投稿はまだありません</div>
         </div>
-      </div>  
-    </div>
+      </div>
+    <% end %>
   </div>
 </div>
