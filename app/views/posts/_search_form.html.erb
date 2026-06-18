@@ -1,10 +1,10 @@
 <%= search_form_for q, url: url, method: :get, html: { class: 'row g-2 align-items-center' } do |f| %>
 
-  <div class=" col-sm-6 col-md-4 col-lg-auto">
+  <div class="col-12 col-sm-4">
     <%= f.search_field :title_or_body_cont, class: 'form-control', placeholder: t('search_form.placeholders.free_keyword') %>
   </div>
 
-  <div class="col-sm-6 col-md-4 col-lg-auto position-relative"
+  <div class="col position-relative"
        data-controller="autocomplete"
        role="combobox"
        data-autocomplete-url-value="<%= plant_name_autocomplete_posts_path %>"
@@ -15,10 +15,10 @@
           id: 'plant_name_search',
           autocomplete: 'off',
           data: { autocomplete_target: 'input' } %>
-    <input type="hidden" data-autocomplete-target="hidden">      
+    <input type="hidden" data-autocomplete-target="hidden">
     <ul data-autocomplete-target="results"
-        class="list-group position-absolute w-100 shadow-sm"
-        style="z-index: 1050; top: 100%;"></ul>
+        class="list-group position-absolute w-100"
+        style="z-index: 1000; top: 100%;"></ul>
   </div>
 
   <div class="col-auto">

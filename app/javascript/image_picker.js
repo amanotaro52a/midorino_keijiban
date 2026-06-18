@@ -1,4 +1,4 @@
-document.addEventListener("turbo:load", () => {
+document.addEventListener("turbo:render", () => {
   const zone     = document.getElementById("imagePickerZone");
   const input    = document.getElementById("imageFileInput");
   if (!zone || !input) return;

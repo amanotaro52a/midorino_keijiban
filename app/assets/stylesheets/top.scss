@@ -8,10 +8,26 @@
   // タブレット版
   @media (max-width: 768px) {
     height: calc(50vh - 80px);
+
+    h1 { 
+      font-size: 1.8rem;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+    }
   }
 
   // モバイル版
   @media (max-width: 576px) {
     height: calc(40vh - 60px);
+
+    h1 { 
+      font-size: 1.4rem;
+    }
+
+    h3 {
+      font-size: 0.9rem;
+    }
   }
 }

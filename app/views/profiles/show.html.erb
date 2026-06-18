@@ -29,36 +29,36 @@
           </div>
         </div>
       </div>
-
-      <h2 class="text-center fs-4 fw-semibold flex-shrink-0 mb-5">
-        投稿した観葉植物
-      </h2>
-      <div class="col-12">
-        <div class="row">
-          <% if @posts.present? %>
-            <%= render @posts %>
-          <% else %>
-            <div class="col">
-              <div class="mb-3">投稿はまだありません</div>
-            </div>
-          <% end %>
-        </div>
-      </div>
-
-      <h2 class= "text-center fs-4 fw-semibold flex-shrink-0 mb-5">
-        お気に入り一覧
-      </h2>
-      <div class="col-12">
-        <div class="row">
-          <% if @bookmark_posts.present? %>
-            <%= render @bookmark_posts %>
-          <% else %>
-            <div class="col">
-              <div class="mb-3">お気に入り登録はまだありません</div>           
-            </div>
-          <% end %>
-        </div>
-      </div>
     </div>
   </div>
+  
+  <h2 class="text-center fs-4 fw-semibold flex-shrink-0 mb-5">
+    投稿した観葉植物
+  </h2>
+  <% if @posts.present? %>
+    <div class="row">
+      <%= render @posts %>
+    </div>  
+  <% else %>
+    <div class="row">
+      <div class="col">
+        <div class="mb-3">投稿はまだありません</div>
+      </div>
+    </div>
+  <% end %>
+
+  <h2 class= "text-center fs-4 fw-semibold flex-shrink-0 mb-5">
+    お気に入り一覧
+  </h2>
+  <% if @bookmark_posts.present? %>
+    <div class="row">
+      <%= render @bookmark_posts %>
+    </div>  
+  <% else %>
+    <div class="row">
+      <div class="col">
+        <div class="mb-3">お気に入り登録はまだありません</div>           
+      </div>
+    </div>
+  <% end %>
 </div>
