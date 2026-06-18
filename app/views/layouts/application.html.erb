@@ -27,17 +27,19 @@
 
       gtag('config', 'G-19NMNMRWVD');
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4/dist/masonry.pkgd.min.js" async></script>
+    <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
   </head>
 
-  <body class="bg-orange-600">
+  <body class="d-flex flex-column min-vh-100">
     <% if logged_in? %>
       <%= render 'shared/header' %>
     <% else %>
       <%= render 'shared/before_login_header' %>
     <% end %>
     <%= render 'shared/flash_message' %>
-    <%= yield %>
+    <main class="flex-grow-1">
+      <%= yield %>
+    </main>
     <%= render 'shared/footer' %>
   </body>
 </html>

@@ -32,13 +32,12 @@
       投稿された観葉植物
     </h2>
     <div class="flex-grow-1 d-flex justify-content-end" style="min-width: 0;">
-      <%= search_form_for @q, url: root_path do |f| %>
+      <div class="row">
         <div class="input-group mb-3">
           <%= render 'posts/search_form', q: @q, url: root_path %>
         </div>
-      <% end %>    
+      </div>
     </div>
-
     <% if @posts.present? %>
       <div class="row" data-masonry='{"percentPosition": true }'>
         <%= render @posts %>
