@@ -32,6 +32,23 @@
           null
         ]
       },
+      "/myapp/app/helpers/posts_helper.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
       "/myapp/app/helpers/static_pages_helper.rb": {
         "lines": [
           1,
@@ -125,6 +142,19 @@
           null,
           null,
           1,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          null,
+          null,
+          1,
           1,
           null,
           null,
@@ -198,6 +228,9 @@
           null,
           null,
           1,
+          1,
+          1,
+          null,
           null,
           1,
           null,
@@ -323,8 +356,8 @@
           null,
           null,
           null,
-          1,
-          0,
+          null,
+          null,
           null,
           null,
           null,
@@ -369,6 +402,9 @@
           1,
           1,
           1,
+          1,
+          1,
+          1,
           null,
           1,
           157,
@@ -379,6 +415,18 @@
           1,
           6,
           6,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
           null,
           null
         ]
@@ -465,13 +513,23 @@
           null
         ]
       },
+      "/myapp/app/models/bookmark.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          1,
+          null
+        ]
+      },
       "/myapp/app/decorators/user_decorator.rb": {
         "lines": [
           1,
           1,
           null,
           1,
-          4,
+          6,
           null,
           null,
           null,
@@ -494,16 +552,6 @@
           null
         ]
       },
-      "/myapp/app/models/bookmark.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null,
-          1,
-          null
-        ]
-      },
       "/myapp/app/channels/application_cable/channel.rb": {
         "lines": [
           0,
@@ -515,6 +563,26 @@
       },
       "/myapp/app/channels/application_cable/connection.rb": {
         "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {}
+      },
+      "/myapp/app/controllers/bookmarks_controller.rb": {
+        "lines": [
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
           0,
           0,
           0,
@@ -550,12 +618,51 @@
         ],
         "branches": {}
       },
+      "/myapp/app/controllers/likes_controller.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {}
+      },
       "/myapp/app/controllers/static_pages_controller.rb": {
         "lines": [
           0,
           0,
           null,
           0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {}
+      },
+      "/myapp/app/decorators/bookmark_decorator.rb": {
+        "lines": [
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
           0
         ],
         "branches": {}
@@ -716,6 +823,6 @@
         "branches": {}
       }
     },
-    "timestamp": 1781100750
+    "timestamp": 1781789468
   }
 }

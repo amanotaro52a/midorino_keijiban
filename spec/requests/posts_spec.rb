@@ -49,7 +49,7 @@ RSpec.describe "Posts", type: :request do
     it "投稿が削除される" do
       delete post_path(my_post)
       expect(Post.exists?(my_post.id)).to be_falsey
-      expect(response).to redirect_to(posts_path)
+      expect(response).to redirect_to(root_path)
     end
   end
 end
