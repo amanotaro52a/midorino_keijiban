@@ -1,23 +1,17 @@
 <%= form_with model: @post do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-
   <div class="mb-3">
   <%= f.label :image, class: "form-label" %>
-
   <div id="imagePickerZone"
        class="image-picker-zone"
        role="button"
        tabindex="0"
        aria-label="クリックまたはドラッグで画像を選択">
-
-    <%# 新規投稿 or 既存画像なし：空のドロップゾーン %>
     <div id="pickerEmpty" class="picker-empty-state" style="<%= 'display:none;' if @post.image_url.present? %>">
       <i class="bi bi-image fs-1 text-secondary d-block mb-2" aria-hidden="true"></i>
       <p class="mb-1 fw-medium">クリックして画像を選択</p>
       <p class="text-secondary small mb-0">またはここにドラッグ＆ドロップ</p>
     </div>
-
-    <%# 編集時：既存画像サムネイル %>
     <% if @post.image_url.present? %>
       <div id="pickerCurrent" class="picker-current-wrap">
         <img src="<%= @post.image_url %>"
@@ -31,8 +25,6 @@
         </div>
       </div>
     <% end %>
-
-    <%# 新しい画像のプレビュー（JS で表示） %>
     <div id="pickerNewPreview" class="picker-new-wrap" style="display:none;">
       <img id="pickerNewThumb" src="" alt="新しい画像プレビュー" class="picker-thumb rounded-3">
       <div>
@@ -47,32 +39,45 @@
       </div>
     </div>
   </div>
-
   <div class="form-text">JPEG・PNG・WebP・GIF ／ 10MB以内</div>
-
-  <%# 非表示の実際の file input %>
   <%= f.file_field :image,
         id: "imageFileInput",
         class: "d-none",
         accept: "image/*",
         data: { has_current: @post.image_url.present? } %>
   </div>
-
   <div class="mb-3">
     <%= f.label :title, class: "form-label" %>
     <%= f.text_field :title, class: "form-control" %>
   </div>
 
-  <div class="mb-3">
+  <%# ▼ Pl@ntNet連携: 植物名フィールド + 判別ボタン ▼ %>
+  <div class="mb-3" data-controller="plant-identify">
     <%= f.label :plant_name, class: "form-label" %>
-    <%= f.text_field :plant_name, class: "form-control", placeholder: "カタカナで入力" %>
+
+    <div class="d-flex gap-2 mb-2">
+      <%= f.text_field :plant_name,
+            class: "form-control",
+            placeholder: "カタカナで入力",
+            data: { "plant-identify-target": "plantName" },
+            autocomplete: "off" %>
+
+      <button type="button"
+              class="btn btn-outline-success text-nowrap"
+              data-plant-identify-target="identifyBtn"
+              data-action="click->plant-identify#identify">
+        <i class="bi bi-search me-1" aria-hidden="true"></i>判別する
+      </button>
+    </div>
+
+    <div data-plant-identify-target="status"></div>
+    <div data-plant-identify-target="suggestions" class="d-flex flex-wrap gap-2 mt-2"></div>
   </div>
 
   <div class="mb-4">
     <%= f.label :body, class: "form-label" %>
     <%= f.text_area :body, class: "form-control", rows: "10" %>
   </div>
-
   <div class="d-flex gap-2 justify-content-center">
     <%= f.submit t('buttons.save'), class: "btn btn-success" %>
   </div>

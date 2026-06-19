@@ -1,3 +1,4 @@
+# config/routes.rb
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => "/admin", as: "rails_admin"
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
@@ -23,6 +24,7 @@ Rails.application.routes.draw do
   resources :password_resets, only: %i[new create edit update]
   resources :contacts, only: %i[new create]
 
+  post "plant_identifications", to: "plant_identifications#create"
 
   get "terms_of_service", to: "informations#terms_of_service", as: :informations_terms_of_service
   get "privacy_policy", to: "informations#privacy_policy", as: :informations_privacy_policy
