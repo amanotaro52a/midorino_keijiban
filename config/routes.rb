@@ -15,14 +15,13 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "static_pages#top"
   resources :users, only: %i[new create]
-  resources :posts, only: %i[index show new create edit destroy update] do
+  resources :posts, only: %i[show new create edit destroy update] do
     get :plant_name_autocomplete, on: :collection
     resource :like, only: [ :create, :destroy ]
   end
   resources :bookmarks, only: %i[create destroy]
   resource :profile, only: %i[show edit update]
   resources :password_resets, only: %i[new create edit update]
-  resources :contacts, only: %i[new create]
 
   post "plant_identifications", to: "plant_identifications#create"
 

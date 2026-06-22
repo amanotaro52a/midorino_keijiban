@@ -598,34 +598,6 @@
         ],
         "branches": {}
       },
-      "/myapp/app/controllers/contacts_controller.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {}
-      },
       "/myapp/app/controllers/likes_controller.rb": {
         "lines": [
           0,
@@ -676,23 +648,6 @@
         "branches": {}
       },
       "/myapp/app/decorators/bookmark_decorator.rb": {
-        "lines": [
-          0,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          0
-        ],
-        "branches": {}
-      },
-      "/myapp/app/decorators/contact_decorator.rb": {
         "lines": [
           0,
           0,
@@ -789,17 +744,6 @@
         ],
         "branches": {}
       },
-      "/myapp/app/mailers/contact_mailer.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {}
-      },
       "/myapp/app/models/ability.rb": {
         "lines": [
           null,
@@ -832,16 +776,6 @@
           null,
           null,
           null,
-          0,
-          0
-        ],
-        "branches": {}
-      },
-      "/myapp/app/models/contact.rb": {
-        "lines": [
-          0,
-          0,
-          0,
           0,
           0
         ],
@@ -954,6 +888,6 @@
         "branches": {}
       }
     },
-    "timestamp": 1782109941
+    "timestamp": 1782112690
   }
 }
