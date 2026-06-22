@@ -1,9 +1,5 @@
 class PostsController < ApplicationController
-  skip_before_action :require_login, only: %i[index show]
-  def index
-    @q = Post.ransack(params[:q])
-    @posts = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
-  end
+  skip_before_action :require_login, only: %i[show]
 
   def plant_name_autocomplete
     search = Post.ransack(plant_name_cont: params[:q])

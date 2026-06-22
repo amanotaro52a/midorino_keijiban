@@ -24,16 +24,4 @@ RSpec.describe InformationsController, type: :controller do
       expect(response).to render_template(:privacy_policy)
     end
   end
-
-  describe "GET #how_to_used" do
-    it "returns a successful response" do
-      get :how_to_used
-      expect(response).to be_successful
-    end
-
-    it "renders the how_to_used template" do
-      get :how_to_used
-      expect(response).to render_template(:how_to_used)
-    end
-  end
 end

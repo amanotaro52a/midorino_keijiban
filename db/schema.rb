@@ -24,14 +24,6 @@ ActiveRecord::Schema[7.2].define(version: 2026_06_09_052351) do
     t.index ["user_id"], name: "index_bookmarks_on_user_id"
   end
 
-  create_table "contacts", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "email", null: false
-    t.text "content", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "likes", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "post_id", null: false
