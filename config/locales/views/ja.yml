@@ -23,9 +23,6 @@ ja:
       deleted: "%{item}を削除しました"
       post_not_found: "投稿が見つかりませんでした"
       require_login: ログインしてください
-  informations:
-    how_to_used:
-      create: 新規会員登録はこちら
   users:
     new:
       title: 新規会員登録
@@ -39,7 +36,6 @@ ja:
     create_post: 新規投稿
     bookmark_index: ブックマーク一覧
     profile: プロフィール
-    how_to_used: 使い方
   footer:
     terms_of_service: 利用規約
     privacy_policy: プライバシーポリシー
