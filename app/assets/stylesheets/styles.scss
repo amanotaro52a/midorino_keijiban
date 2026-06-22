@@ -1,61 +1,3 @@
-.container {
-  margin: 0 auto;
-  padding: 20px;
-  border-radius: 8px;
-
-  .form-control {
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-
-  .text-center {
-    margin-top: 20px; // 上の間隔を調整
-  }
-
-  .link-wrapper {
-    display: flex;           // フレックスボックスを利用
-    justify-content: space-between; // ボタンとリンクを左右に配置
-    margin-top: 10px;       // 上の間隔を調整
-  }
-
-  .link-wrapper a {
-    margin-left: 10px;      // ボタンとリンクの間隔を調整
-    flex-grow: 1;           // リンクの幅を広げる
-  }
-
-  .btn {
-    padding: 10px 50px; // 縦横のパディングを大きく
-    font-size: 18px;    // フォントサイズを大きく
-  }
-
-  .button-container {
-    text-align: center; // 中央寄せ
-    margin-top: 20px;   // 上の間隔を調整
-  }
-
-  .board-image {
-    cursor: pointer; /* クリックできるようにカーソルを変更 */
-  }
-  .preview-container img {
-    max-width: 100%; /* プレビュー画像のサイズを調整 */
-  }
-
-  .thumbnail {
-    background-color: #eedcb3; /* 黄色の背景 */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer; /* クリックできることを示すカーソル */
-    border: 2px solid #ccc; /* 枠線を追加（必要に応じて） */
-  }
-  .thumbnail img {
-    max-width: 85%; /* 画像のサイズを調整 */
-    max-height: 80%; /* 画像のサイズを調整 */
-  }
-}
-
-// ─── Image Picker ───────────────────────────────────────
-
 .image-picker-zone {
   border: 2px dashed #ced4da;
   border-radius: 0.75rem;
@@ -86,15 +28,15 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: 1rem 1rem 1rem 1.5rem; // 左側を広めに確保
+  padding: 1rem 1rem 1rem 1.5rem;
 }
 
 .picker-thumb {
-  width: 80px;        // 100px → 80px に縮小
+  width: 80px;
   height: 80px;
   object-fit: cover;
   border: 1px solid #dee2e6;
   border-radius: 0.5rem;
   flex-shrink: 0;
-  display: block;     // インライン要素による余白を排除
+  display: block;
 }
