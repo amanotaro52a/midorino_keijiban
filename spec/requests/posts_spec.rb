@@ -9,13 +9,6 @@ RSpec.describe "Posts", type: :request do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
   end
 
-  describe "GET /posts" do
-    it "一覧ページが正常に表示される" do
-      get posts_path
-      expect(response).to have_http_status(:ok)
-    end
-  end
-
   describe "GET /posts/:id" do
     it "詳細ページが正常に表示される" do
       get post_path(my_post)

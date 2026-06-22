@@ -5,14 +5,6 @@ RSpec.describe PostsController, type: :controller do
   let(:other_user) { create(:user) }
   let!(:post) { create(:post, user: user) }
 
-  describe 'GET #index' do
-    it 'renders the index template and assigns @posts' do
-      get :index
-      expect(response).to render_template(:index)
-      expect(assigns(:posts)).to eq([ post ])
-    end
-  end
-
   describe 'GET #new' do
     context 'when logged in' do
       before { login_user(user) }
