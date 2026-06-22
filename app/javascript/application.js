@@ -2,6 +2,7 @@
 import "@hotwired/turbo-rails"
 import "./image_picker"
 import "./controllers/autocomplete_controller"
+import "./controllers/plant_identify_controller"
 import * as bootstrap from "bootstrap"
 
 document.addEventListener('turbo:load', function() {
