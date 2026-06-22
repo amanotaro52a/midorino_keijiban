@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  skip_before_action :require_login, only: %i[show]
+  skip_before_action :require_login, only: %i[show plant_name_autocomplete]
 
   def plant_name_autocomplete
     search = Post.ransack(plant_name_cont: params[:q])
