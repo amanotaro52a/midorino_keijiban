@@ -1,9 +1,11 @@
 import { Application } from "@hotwired/stimulus"
+import LightboxController from "./lightbox_controller"
 
 const application = Application.start()
 
-// Configure Stimulus development experience
 application.debug = false
-window.Stimulus   = application
+window.Stimulus = application
+
+application.register("lightbox", LightboxController)
 
 export { application }

@@ -5,8 +5,15 @@
 
       <article class="card shadow-sm rounded-4 overflow-hidden">
         <div class="row g-0">
-          <div class="col-md-5">
-            <%= image_tag @post.image.url, class: "img-fluid w-100 h-100", style: "object-fit: cover; min-height: 300px;" %>
+          <div class="col-md-5" data-controller="lightbox">
+            <%= link_to @post.image.url,
+                  data: { lightbox_target: "trigger" },
+                  style: "cursor: zoom-in; display: block; min-height: 300px;" do %>
+            <%= image_tag @post.image.url,
+                  class: "img-fluid w-100 h-100",
+                  style: "object-fit: cover; min-height: 300px;",
+                  alt: @post.try(:title) || "投稿画像" %>
+            <% end %>
           </div>
           <div class="col-md-7 d-flex flex-column text-success-emphasis">
             <div class="card-body p-4 d-flex flex-column h-100">
