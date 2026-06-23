@@ -6,6 +6,20 @@
   z-index: 1031 !important;
 }
 
+.masonry-item {
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.masonry-item .card-img-top {
+  transition: transform 0.4s ease;
+  will-change: transform;
+}
+
+.masonry-item:hover .card-img-top {
+  transform: scale(1.08);
+}
+
 .image-picker-zone {
   border: 2px dashed #ced4da;
   border-radius: 0.75rem;

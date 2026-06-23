@@ -1,5 +1,5 @@
 <div class="col-6 col-md-4 col-lg-3 mb-4">
-  <div id="post-id-<%= post.id %>">
+  <div id="post-id-<%= post.id %>" class="masonry-item">
     <%= link_to post_path(post), class: "card text-decoration-none" do %>
       <%= image_tag post.image_url, class: "card-img-top" %>
     <% end %>
