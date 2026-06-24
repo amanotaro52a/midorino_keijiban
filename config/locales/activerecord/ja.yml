@@ -3,7 +3,6 @@ ja:
     models:
       user: ユーザー
       post: 投稿
-      growth_stage: 成長段階
     attributes:
       user:
         email: メールアドレス
@@ -24,9 +23,9 @@ ja:
         updated_at: 更新日時
       post:
         user: ユーザー
-        title: タイトル
+        title: タイトル (必須)
         body: 説明
-        image: 画像
+        image: 画像 (必須)
         plant_name: 植物名
         created_at: 登録日時
         updated_at: 更新日時
