@@ -66,7 +66,7 @@ class PlantNetClient
       { error: "APIの利用上限に達しました。時間をおいて再度お試しください" }
     else
       Rails.logger.error("[PlantNetClient] 想定外のステータス: #{response.status} body=#{response.body}")
-      { error: "識別に失敗しました（エラーコード: #{response.status}）" }
+      { error: "識別に失敗しました。別の画像で再度お試しください" }
     end
   end
 

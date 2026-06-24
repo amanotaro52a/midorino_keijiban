@@ -1,7 +1,6 @@
-import { application } from "./application"
 import { Controller } from "@hotwired/stimulus"
 
-class PlantIdentifyController extends Controller {
+export default class extends Controller {
   static targets = ["plantName", "status", "suggestions", "identifyBtn"]
 
   // 「判別する」ボタンの click から呼ばれる
@@ -35,9 +34,9 @@ class PlantIdentifyController extends Controller {
   async #requestIdentification(file) {
     this.#setLoading(true)
 
-    const formData = new FormData()
-    formData.append("image", file)
+    const formData  = new FormData()
     const csrfToken = document.querySelector('meta[name="csrf-token"]')?.content
+    formData.append("image", file)
 
     try {
       const response = await fetch("/plant_identifications", {
@@ -63,13 +62,14 @@ class PlantIdentifyController extends Controller {
 
   #setLoading(isLoading) {
     if (!this.hasIdentifyBtnTarget) return
-    this.identifyBtnTarget.disabled = isLoading
+
+    this.identifyBtnTarget.disabled  = isLoading
     this.identifyBtnTarget.innerHTML = isLoading
       ? `<span class="spinner-border spinner-border-sm me-1" role="status" aria-hidden="true"></span>判別中...`
       : `<i class="bi bi-search me-1" aria-hidden="true"></i>判別する`
 
     if (isLoading) {
-      this.statusTarget.innerHTML = ""
+      this.statusTarget.innerHTML      = ""
       this.suggestionsTarget.innerHTML = ""
     }
   }
@@ -94,11 +94,11 @@ class PlantIdentifyController extends Controller {
       </div>`
 
     this.suggestionsTarget.innerHTML = results.map(r => {
-      const pct = Math.round(r.score * 100)
-      const displayName = this.#escapeHtml(r.display_name)
-      const sciName = this.#escapeHtml(r.scientific_name)
+      const pct             = Math.round(r.score * 100)
+      const displayName     = this.#escapeHtml(r.display_name)
+      const sciName         = this.#escapeHtml(r.scientific_name)
       const confidenceClass = pct >= 70 ? "bg-success" : pct >= 40 ? "bg-warning text-dark" : "bg-secondary"
-      const isFallback = r.display_name === r.scientific_name
+      const isFallback      = r.display_name === r.scientific_name
 
       return `
         <button type="button"
@@ -118,5 +118,3 @@ class PlantIdentifyController extends Controller {
       ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]))
   }
 }
-
-application.register("plant-identify", PlantIdentifyController)
