@@ -35,46 +35,36 @@ https://www.daiichi-engei.jp/wp/wp-content/uploads/2024/08/a02e920d72a4b756a6477
 
 
 # 機能紹介
-| ユーザー登録 / ログイン |
+| 植物名のオートコンプリート検索 |
 | :---: | 
-| [![Image from Gyazo](https://i.gyazo.com/cb69e9b5a8189c573679418be7c5874f.png)](https://gyazo.com/cb69e9b5a8189c573679418be7c5874f)|
-| <p align="left">『名前』『メールアドレス』『パスワード』『確認用パスワード』を入力してユーザー登録を行います。ユーザー登録後は、自動的にログイン処理が行われるようになっており、そのまま直ぐにサービスを利用する事が出来ます。</p> |
+| <img width="600" height="302" alt="オートコンプリート動画gif" src="https://github.com/user-attachments/assets/7f9edf7c-0039-411f-a226-e41ab6c8a3db" />|
+| <p align="left">『植物名』の検索欄にはオートコンプリート機能が備わっており、最初の一文字を入力するだけで、投稿されている植物名を割り出すことができます。(
+未ログイン時でも使用できます。）</p> |
 <br>
 
-| 日記検索 / 日記一覧 |
+| 投稿画像の拡大表示 |
 | :---: | 
-| [![Image from Gyazo](https://i.gyazo.com/5d6d9da8e88ccd8dfdfcbeddc0089b91.png)](https://gyazo.com/5d6d9da8e88ccd8dfdfcbeddc0089b91)|
-| <p align="left">フリーキーワードから絞り出せる『タイトル』を初め５つのカテゴリーから日記を検索することが可能で、ユーザー登録の有無に関わらずどなたでも利用できます。</p> |
+| <img width="600" height="296" alt="画像ライトボックス" src="https://github.com/user-attachments/assets/a9fb45da-f224-49ea-8e7b-11c36346fbde" />|
+| <p align="left">投稿詳細画面で表示されている画像をクリックすることで、ライトボックスでの画像拡大表示ができます。（投稿されているすべての画像が拡大できます。）</p> |
 <br>
 
-| 日記作成 |
+| 植物判定 |
 | :---: | 
-| [![Image from Gyazo](https://i.gyazo.com/5e53cdaad91f1eddde1e7807f67227c5.gif)](https://gyazo.com/5e53cdaad91f1eddde1e7807f67227c5)|
-| <p align="left">日記の投稿には『タイトル』『概要』『植物名』の情報は必須です。追加ボタンを押すと、成長段階のテキストと画像挿入フォームを自由に追加、削除することができます。</p> |
-<br>
-
-| 日記の詳細を閲覧 |
-| :---: | 
-| [![Image from Gyazo](https://i.gyazo.com/3c09f5267da7798f75b7289b4cbe3414.png)](https://gyazo.com/3c09f5267da7798f75b7289b4cbe3414)|
-| <p align="left">一覧画面から気になる日記をクリックすることで、大きな画像で見やすい成長段階を閲覧することができます。</p> |
-<br>
-
-| お問い合わせフォーム送信 |
-| :---: | 
-| [![Image from Gyazo](https://i.gyazo.com/2afc0ba0bc558235bd51d07cdc497e7f.png)](https://gyazo.com/2afc0ba0bc558235bd51d07cdc497e7f)|
-| <p align="left">サービス利用時に発生した不具合を管理者に送信できるフォームを用意しています。このフォームは会員登録をしていないユーザーからも送信できます。</p> |
+|<img width="600" height="306" alt="植物判定APIgif" src="https://github.com/user-attachments/assets/75503d9c-eaad-46d6-9649-ad4dca214a9a" />|
+| <p align="left">万が一植物名を忘れてしまっても大丈夫です。添付した画像から植物判定APIを使えば割り出すことができます。（葉・茎など植物体が大きく写っていると認識がスムーズに行えます。）</p> |
 <br>
 
 # 技術構成
 | カテゴリ | 技術内容 |
 | --- | --- | 
-| サーバーサイド | Ruby 3.1.4 Ruby on Rails 7.0.4|
-| フロントエンド | Ruby on Rails・JavaScript |
-| CSSフレームワーク | Bootstrap |
+| サーバーサイド | Ruby 3.1.4 / Ruby on Rails 7.0.4 |
+| フロントエンド | Rails（Hotwire: Turbo / Stimulus）・JavaScript |
+| CSSフレームワーク | Bootstrap 5|
 | データベースサーバー | PostgreSQL |
-| ファイルサーバー | AWS S3 |
-| アプリケーションサーバー | Heroku |
-| バージョン管理ツール | GitHub・Git Flow |
+| ファイルサーバー | AWS S3（CarrierWave + fog） |
+| アプリケーションサーバー | Render |
+| 外部API | 植物判別API（Pl@ntNet） |
+| バージョン管理ツール | GitHub / Git Flow |
 <br>
 
 # キャッチアップ状況
