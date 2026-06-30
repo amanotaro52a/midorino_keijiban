@@ -6,7 +6,8 @@ RailsAdmin.config do |config|
   ## == Devise ==
   config.authenticate_with do
     authenticate_or_request_with_http_basic("Site Message") do |username, password|
-      username == "midoriadmin" && password == "admin0123"
+      ActiveSupport::SecurityUtils.secure_compare(username, ENV.fetch("RAILS_ADMIN_USERNAME")) &
+        ActiveSupport::SecurityUtils.secure_compare(password, ENV.fetch("RAILS_ADMIN_PASSWORD"))
     end
   end
   #   warden.authenticate! scope: :user
