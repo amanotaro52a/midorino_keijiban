@@ -3,6 +3,8 @@ ja:
     models:
       user: ユーザー
       post: 投稿
+      bookmark: ブックマーク
+      like: いいね
     attributes:
       user:
         email: メールアドレス
